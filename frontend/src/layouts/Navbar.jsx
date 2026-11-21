@@ -30,9 +30,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-forest-800 text-white flex items-center justify-center shadow-md shadow-forest-800/20">
-              <Sprout className="w-6 h-6 text-leaf-500" />
-            </div>
+            <img
+              src="/logo-icon.png"
+              alt="KrishiMitra Logo"
+              className="w-10 h-10 object-contain rounded-xl drop-shadow-sm"
+            />
             <div>
               <span className="text-xl font-bold tracking-tight text-forest-900 block leading-none">
                 Krishi<span className="text-leaf-600">Mitra</span>

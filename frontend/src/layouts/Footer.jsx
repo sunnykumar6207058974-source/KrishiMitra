@@ -10,9 +10,11 @@ export default function Footer() {
           {/* Col 1: Brand Info */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-forest-800 border border-forest-700 flex items-center justify-center text-white">
-                <Sprout className="w-5 h-5 text-leaf-500" />
-              </div>
+              <img
+                src="/logo-icon.png"
+                alt="KrishiMitra"
+                className="w-9 h-9 object-contain drop-shadow-sm"
+              />
               <span className="text-xl font-bold tracking-tight text-white">
                 Krishi<span className="text-leaf-500">Mitra</span>
               </span>

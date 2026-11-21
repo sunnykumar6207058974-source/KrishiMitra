@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquareText, Send, Sparkles, Bot, User, BookOpen, AlertCircle } from 'lucide-react';
+import { MessageSquareText, Send, Sparkles, Bot, User, BookOpen, AlertCircle, Radio } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import SphereVoiceAssistant from '../../components/SphereVoiceAssistant';
 
 export default function AIChat() {
   const [messages, setMessages] = useState([
@@ -12,30 +13,31 @@ export default function AIChat() {
   ]);
   const [input, setInput] = useState('');
   const [language, setLanguage] = useState('en');
+  const [lastAnswer, setLastAnswer] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
   const chatBottomRef = useRef(null);
 
   useEffect(() => {
     chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const query = input.trim();
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', text: query }]);
+  const processQuery = (queryText) => {
+    if (!queryText.trim()) return;
+    setIsProcessing(true);
+    setMessages(prev => [...prev, { role: 'user', text: queryText }]);
 
     setTimeout(() => {
       let replyText = '';
-      if (query.toLowerCase().includes('acid') || query.toLowerCase().includes('ph')) {
+      if (queryText.toLowerCase().includes('acid') || queryText.toLowerCase().includes('ph')) {
         replyText = 'For managing acidic soils in Assam (pH 5.0 - 5.6): Apply Agricultural Lime (calcium carbonate) @ 250-350 kg/Bigha once every 3 years. This neutralizes active aluminium toxicity and allows paddy roots to absorb applied phosphate fertilizers.';
-      } else if (query.toLowerCase().includes('paddy') || query.toLowerCase().includes('sali')) {
+      } else if (queryText.toLowerCase().includes('paddy') || queryText.toLowerCase().includes('sali')) {
         replyText = 'For Sali paddy in Barak & Brahmaputra valleys: Transplant 25-day old seedlings at 2-3 per hill. Apply 50% nitrogen as basal dose, 25% at active tillering, and 25% at panicle initiation for optimal yield.';
       } else {
         replyText = `Based on ICAR and Assam Agricultural University guidelines: Ensure well-drained seedbed preparation and use certified seed varieties suitable for local soil conditions. Consult your local Krishi Vigyan Kendra for lab-tested fertilizer dosages.`;
       }
 
+      setLastAnswer(replyText);
+      setIsProcessing(false);
       setMessages(prev => [
         ...prev,
         {
@@ -46,6 +48,14 @@ export default function AIChat() {
         }
       ]);
     }, 600);
+  };
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    const query = input.trim();
+    setInput('');
+    processQuery(query);
   };
 
   const sampleQuestions = [
@@ -74,6 +84,13 @@ export default function AIChat() {
             </select>
           </div>
         }
+      />
+
+      {/* 3D Sphere AI Voice Interaction (AmazingUI Sphere Design) */}
+      <SphereVoiceAssistant
+        onQuerySubmit={(query) => processQuery(query)}
+        lastAnswer={lastAnswer}
+        isProcessing={isProcessing}
       />
 
       {/* Chat Container */}
