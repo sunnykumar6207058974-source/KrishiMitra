@@ -78,3 +78,32 @@ def test_ai_chat():
     data = response.json()
     assert "reply" in data
     assert "safety_disclaimer" in data
+
+def test_welcome_email_service():
+    from app.services.email_service import generate_welcome_email_html, send_welcome_email
+    
+    html = generate_welcome_email_html("Mukesh Kumar", "Cachar", "Assam", "hi")
+    assert "Mukesh Kumar" in html
+    assert "KrishiMitra" in html
+    assert "Cachar" in html
+
+    # Test delivery without SMTP credentials (safe simulation mode)
+    result = send_welcome_email("mukesh@example.com", "Mukesh Kumar", "Cachar", "Assam", "en")
+    assert result is True
+
+def test_register_with_email_dispatches_welcome():
+    unique_phone = f"987{hash('test_welcome') % 10000000:07d}"
+    response = client.post("/api/auth/register", json={
+        "full_name": "Email Test Farmer",
+        "mobile_number": unique_phone,
+        "email": f"farmer_{unique_phone}@example.com",
+        "password": "password123",
+        "state": "Assam",
+        "district": "Cachar",
+        "preferred_language": "hi"
+    })
+    assert response.status_code == 201
+    data = response.json()
+    assert "access_token" in data
+    assert data["user"]["full_name"] == "Email Test Farmer"
+

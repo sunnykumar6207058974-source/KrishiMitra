@@ -91,7 +91,10 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.email')}</label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-semibold text-gray-700">{t('authPage.register.email')}</label>
+                <span className="text-[10px] text-forest-700 font-semibold">{t('authPage.register.emailHint', 'Receives Welcome Kit')}</span>
+              </div>
               <div className="relative">
                 <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
                 <input

@@ -1,15 +1,20 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
 from app.database.session import get_db
 from app.models.entities import User, FarmerProfile, Farm
 from app.schemas.auth import UserRegister, UserLogin, Token, UserResponse
 from app.core.security import verify_password, get_password_hash, create_access_token
 from app.api.deps import get_current_user
+from app.services.email_service import send_welcome_email
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 @router.post("/register", response_model=Token, status_code=status.HTTP_201_CREATED)
-def register(user_in: UserRegister, db: Session = Depends(get_db)):
+def register(
+    user_in: UserRegister,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db)
+):
     # Check duplicate mobile number
     existing_mobile = db.query(User).filter(User.mobile_number == user_in.mobile_number).first()
     if existing_mobile:
@@ -66,6 +71,18 @@ def register(user_in: UserRegister, db: Session = Depends(get_db)):
     db.commit()
 
     token = create_access_token(subject=new_user.id)
+
+    # Dispatch welcome email asynchronously in background if email is provided
+    if new_user.email:
+        background_tasks.add_task(
+            send_welcome_email,
+            to_email=new_user.email,
+            full_name=new_user.full_name,
+            district=new_user.district,
+            state=new_user.state,
+            preferred_language=new_user.preferred_language,
+        )
+
     return {
         "access_token": token,
         "token_type": "bearer",
