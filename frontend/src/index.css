@@ -1,3 +1,6 @@
+/* ── Google Fonts: Noto Sans Devanagari for Hindi text ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,4 +11,42 @@ body {
   background-color: #F7FAF5;
   color: #1F2937;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.6;
 }
+
+/* ── Hindi / Devanagari text enhancement ── */
+:lang(hi),
+[lang="hi"],
+.hi-text {
+  font-family: 'Noto Sans Devanagari', 'Mangal', 'Arial Unicode MS', sans-serif;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+/* ── Global typography scale boosts ── */
+/* Map Tailwind xs → 13px, sm → 14.5px, base → 16px */
+.text-xs  { font-size: 0.8125rem !important; }   /* 13px */
+.text-sm  { font-size: 0.9375rem !important; }   /* 15px */
+.text-base{ font-size: 1rem !important; }         /* 16px */
+
+/* ── Utility overrides for tiny hard-coded sizes ── */
+.text-\[10px\]  { font-size: 0.75rem !important; }  /* 12px (was 10px) */
+.text-\[9px\]   { font-size: 0.6875rem !important; } /* 11px (was 9px)  */
+
+/* ── Button readability ── */
+button, [role="button"] {
+  font-size: inherit;
+}
+
+/* ── Input & select readability ── */
+input, select, textarea {
+  font-size: 0.875rem;  /* 14px */
+}
+
+/* ── Smooth scrollbar ── */
+* { scroll-behavior: smooth; }
+
+/* ── Link smoothing ── */
+a { -webkit-font-smoothing: antialiased; }

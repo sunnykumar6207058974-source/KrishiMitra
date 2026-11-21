@@ -77,7 +77,7 @@ export default function CropCalendar() {
         actionButton={
           <button
             onClick={() => setShowAddModal(true)}
-            className="px-4 py-2.5 bg-km-deep hover:bg-km-sage text-white text-xs font-bold rounded-2xl shadow-subtle flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2.5 bg-km-deep hover:bg-km-sage text-white text-sm font-bold rounded-2xl shadow-subtle flex items-center gap-1.5 transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>{t('calendarPage.addActivity', 'Add New Activity')}</span>
@@ -86,7 +86,7 @@ export default function CropCalendar() {
       />
 
       {successMsg && (
-        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 flex items-center gap-2">
+        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-sm text-emerald-800 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           <span>{t('calendarPage.successAdd', 'New farming activity scheduled successfully!')}</span>
         </div>
@@ -98,7 +98,7 @@ export default function CropCalendar() {
           <button
             key={option.key}
             onClick={() => setFilterStage(option.key)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
+            className={`px-4 py-2 rounded-xl text-sm font-bold border transition-colors ${
               filterStage === option.key
                 ? 'bg-km-sage text-white border-km-sage'
                 : 'bg-km-surface text-km-subtext border-km-border hover:bg-km-bg'
@@ -111,12 +111,12 @@ export default function CropCalendar() {
 
       {/* Task List */}
       <div className="bg-km-surface rounded-3xl p-6 border border-km-border shadow-subtle space-y-4">
-        <h3 className="text-base font-bold text-km-dark">
+        <h3 className="text-lg sm:text-xl font-bold text-km-dark">
           {t('calendarPage.scheduledMilestones', 'Scheduled Milestones')} ({filteredTasks.length})
         </h3>
 
         {filteredTasks.length === 0 ? (
-          <div className="py-12 text-center text-xs text-km-subtext">
+          <div className="py-12 text-center text-sm text-km-subtext">
             {t('calendarPage.emptyState', 'No scheduled milestones found for the selected filter.')}
           </div>
         ) : (

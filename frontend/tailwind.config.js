@@ -6,6 +6,22 @@ export default {
   ],
   theme: {
     extend: {
+      // ── Typography scale: moderate, farmer-friendly ──────────────────────
+      fontSize: {
+        'xs':   ['0.8125rem', { lineHeight: '1.5' }],   // 13px (was 12px)
+        'sm':   ['0.9375rem', { lineHeight: '1.6' }],   // 15px (was 14px)
+        'base': ['1rem',      { lineHeight: '1.65' }],  // 16px
+        'lg':   ['1.125rem',  { lineHeight: '1.6' }],   // 18px
+        'xl':   ['1.25rem',   { lineHeight: '1.5' }],   // 20px
+        '2xl':  ['1.5rem',    { lineHeight: '1.4' }],   // 24px
+        '3xl':  ['1.875rem',  { lineHeight: '1.3' }],   // 30px
+        '4xl':  ['2.25rem',   { lineHeight: '1.2' }],   // 36px
+      },
+      // ── Custom shadows ────────────────────────────────────────────────────
+      boxShadow: {
+        'subtle':   '0 1px 3px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.04)',
+        'floating': '0 8px 24px 0 rgba(0,0,0,0.12)',
+      },
       colors: {
         forest: {
           50: '#f0fdf4',

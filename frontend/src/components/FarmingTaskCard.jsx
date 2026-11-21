@@ -37,7 +37,7 @@ export default function FarmingTaskCard({ task, onToggleStatus }) {
 
   return (
     <div
-      className={`p-4 rounded-2xl border transition-all ${
+      className={`p-4 sm:p-5 rounded-2xl border transition-all ${
         isCompleted
           ? 'bg-km-surface/60 border-km-border text-km-subtext/70'
           : 'bg-km-surface border-km-border text-km-dark hover:border-km-sage shadow-subtle'
@@ -48,35 +48,39 @@ export default function FarmingTaskCard({ task, onToggleStatus }) {
           <button
             onClick={() => onToggleStatus && onToggleStatus(task.id)}
             title={isCompleted ? t('calendarPage.statuses.Completed', 'Completed') : t('calendarPage.statuses.Pending', 'Pending')}
-            className={`w-5 h-5 rounded-lg border flex items-center justify-center mt-0.5 shrink-0 transition-colors ${
+            className={`w-6 h-6 rounded-lg border flex items-center justify-center mt-0.5 shrink-0 transition-colors ${
               isCompleted
                 ? 'bg-km-sage border-km-sage text-white'
                 : 'border-km-border hover:border-km-sage bg-km-bg'
             }`}
           >
-            {isCompleted && <CheckCircle2 className="w-3.5 h-3.5" />}
+            {isCompleted && <CheckCircle2 className="w-4 h-4" />}
           </button>
 
-          <div className="space-y-1">
-            <h4 className={`text-xs font-bold ${isCompleted ? 'line-through text-km-subtext' : 'text-km-dark'}`}>
+          <div className="space-y-1.5">
+            {/* Card title: 16–17px bold */}
+            <h4 className={`text-sm sm:text-base font-bold leading-snug ${isCompleted ? 'line-through text-km-subtext' : 'text-km-dark'}`}>
               {title}
             </h4>
-            <div className="flex flex-wrap items-center gap-2 text-[10px] text-km-subtext font-medium">
+            {/* Crop / Stage / Due — 13–14px */}
+            <div className="flex flex-wrap items-center gap-2 text-xs text-km-subtext font-medium">
               <span className="text-km-sage font-bold">{crop}</span>
               <span>•</span>
               <span>{t('calendarPage.stage', 'Stage')}: {stage}</span>
               <span>•</span>
               <span>{t('calendarPage.due', 'Due')}: {formatDate(task.dueDate)}</span>
             </div>
+            {/* Notes / description: 14–15px */}
             {notes && (
-              <p className="text-[10px] text-km-subtext pt-1 leading-relaxed">
+              <p className="text-xs sm:text-sm text-km-subtext pt-1 leading-relaxed">
                 {notes}
               </p>
             )}
           </div>
         </div>
 
-        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-md border shrink-0 ${priorityColors[task.priority] || priorityColors.Medium}`}>
+        {/* Priority badge: 11–12px */}
+        <span className={`text-xs font-bold px-2.5 py-1 rounded-md border shrink-0 ${priorityColors[task.priority] || priorityColors.Medium}`}>
           {priority}
         </span>
       </div>
