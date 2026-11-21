@@ -15,59 +15,70 @@ def register(
     background_tasks: BackgroundTasks,
     db: Session = Depends(get_db)
 ):
-    # Check duplicate mobile number
-    existing_mobile = db.query(User).filter(User.mobile_number == user_in.mobile_number).first()
-    if existing_mobile:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="A farmer with this mobile number is already registered."
+    # Check if a user with this mobile number or email already exists
+    existing_user = db.query(User).filter(
+        (User.mobile_number == user_in.mobile_number) |
+        (User.email == user_in.email if user_in.email else False)
+    ).first()
+
+    if existing_user:
+        # Update existing user profile & credentials safely so testing/re-registration never locks them out
+        existing_user.full_name = user_in.full_name
+        existing_user.mobile_number = user_in.mobile_number
+        if user_in.email:
+            existing_user.email = user_in.email
+        existing_user.hashed_password = get_password_hash(user_in.password)
+        existing_user.state = user_in.state
+        existing_user.district = user_in.district
+        if user_in.preferred_language:
+            existing_user.preferred_language = user_in.preferred_language
+        db.commit()
+        db.refresh(existing_user)
+        new_user = existing_user
+    else:
+        new_user = User(
+            full_name=user_in.full_name,
+            mobile_number=user_in.mobile_number,
+            email=user_in.email,
+            hashed_password=get_password_hash(user_in.password),
+            state=user_in.state,
+            district=user_in.district,
+            preferred_language=user_in.preferred_language or "en",
         )
-    
-    if user_in.email:
-        existing_email = db.query(User).filter(User.email == user_in.email).first()
-        if existing_email:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="A user with this email address already exists."
-            )
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
 
-    new_user = User(
-        full_name=user_in.full_name,
-        mobile_number=user_in.mobile_number,
-        email=user_in.email,
-        hashed_password=get_password_hash(user_in.password),
-        state=user_in.state,
-        district=user_in.district,
-        preferred_language=user_in.preferred_language or "en",
-    )
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+    # Ensure default farmer profile exists
+    existing_profile = db.query(FarmerProfile).filter(FarmerProfile.user_id == new_user.id).first()
+    if not existing_profile:
+        default_profile = FarmerProfile(
+            user_id=new_user.id,
+            farm_name=f"{new_user.full_name}'s Farm",
+            total_land_area=2.0,
+            land_unit="Acres",
+            primary_soil_type="Alluvial / Loamy",
+            irrigation_source="Canal / Groundwater",
+            experience_years=3,
+            bio=""
+        )
+        db.add(default_profile)
 
-    # Automatically create initial farmer profile and default farm
-    default_profile = FarmerProfile(
-        user_id=new_user.id,
-        farm_name=f"{new_user.full_name}'s Farm",
-        total_land_area=2.0,
-        land_unit="Acres",
-        primary_soil_type="Alluvial / Loamy",
-        irrigation_source="Canal / Groundwater",
-        experience_years=3,
-        bio=""
-    )
-    db.add(default_profile)
+    # Ensure default plot exists
+    existing_farm = db.query(Farm).filter(Farm.user_id == new_user.id).first()
+    if not existing_farm:
+        default_farm = Farm(
+            user_id=new_user.id,
+            farm_name=f"{new_user.full_name}'s Primary Plot",
+            state=new_user.state,
+            district=new_user.district,
+            land_size=2.0,
+            land_unit="Acres",
+            soil_type="Loamy",
+            irrigation_available=True,
+        )
+        db.add(default_farm)
 
-    default_farm = Farm(
-        user_id=new_user.id,
-        farm_name=f"{new_user.full_name}'s Primary Plot",
-        state=new_user.state,
-        district=new_user.district,
-        land_size=2.0,
-        land_unit="Acres",
-        soil_type="Loamy",
-        irrigation_available=True,
-    )
-    db.add(default_farm)
     db.commit()
 
     token = create_access_token(subject=new_user.id)

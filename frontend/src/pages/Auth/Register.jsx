@@ -32,7 +32,18 @@ export default function Register() {
       await register(formData);
       navigate('/app/dashboard');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Registration failed. Please check inputs.');
+      const detail = err.response?.data?.detail;
+      let msg = 'Registration failed. Please check inputs.';
+      if (typeof detail === 'string') {
+        msg = detail;
+      } else if (Array.isArray(detail)) {
+        msg = detail.map(d => `${d.loc ? d.loc.slice(-1)[0] + ': ' : ''}${d.msg}`).join(', ');
+      } else if (err.message && err.message.includes('Network Error')) {
+        msg = 'Connecting to server... Server may be waking up, please try once more in a few seconds.';
+      } else if (err.message) {
+        msg = err.message;
+      }
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -148,12 +159,14 @@ export default function Register() {
                 type="password"
                 name="password"
                 required
+                minLength={6}
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
               />
             </div>
+            <p className="text-[10px] text-gray-400 mt-1">Minimum 6 characters</p>
           </div>
 
           <button

@@ -21,7 +21,18 @@ export default function Login() {
       await login(mobileOrEmail, password);
       navigate('/app/dashboard');
     } catch (err) {
-      setError(err.response?.data?.detail || t('authPage.errors.invalidCredentials'));
+      const detail = err.response?.data?.detail;
+      let msg = t('authPage.errors.invalidCredentials', 'Incorrect mobile/email or password.');
+      if (typeof detail === 'string') {
+        msg = detail;
+      } else if (Array.isArray(detail)) {
+        msg = detail.map(d => d.msg).join(', ');
+      } else if (err.message && err.message.includes('Network Error')) {
+        msg = 'Connecting to server... Server may be waking up, please try once more in a few seconds.';
+      } else if (err.message) {
+        msg = err.message;
+      }
+      setError(msg);
     } finally {
       setLoading(false);
     }
