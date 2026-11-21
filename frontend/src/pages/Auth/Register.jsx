@@ -30,7 +30,7 @@ export default function Register() {
     setLoading(true);
     try {
       await register(formData);
-      navigate('/dashboard');
+      navigate('/app/dashboard');
     } catch (err) {
       setError(err.response?.data?.detail || 'Registration failed. Please check inputs.');
     } finally {

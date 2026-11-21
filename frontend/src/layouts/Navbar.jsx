@@ -62,7 +62,7 @@ export default function Navbar() {
             ))}
 
             <Link
-              to="/dashboard"
+              to="/app/dashboard"
               className="ml-2 px-3.5 py-1.5 rounded-lg text-sm font-semibold bg-forest-100 text-forest-800 flex items-center gap-1.5 hover:bg-forest-200"
             >
               <LayoutDashboard className="w-4 h-4" />
@@ -89,7 +89,7 @@ export default function Navbar() {
             {user ? (
               <div className="flex items-center gap-2">
                 <Link
-                  to="/dashboard"
+                  to="/app/dashboard"
                   className="flex items-center gap-2 pl-2 pr-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
                 >
                   <div className="w-6 h-6 rounded-full bg-forest-800 text-white flex items-center justify-center text-xs">
@@ -159,7 +159,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              to="/dashboard"
+              to="/app/dashboard"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2 rounded-lg text-base font-semibold text-forest-800 bg-forest-50"
             >

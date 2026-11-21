@@ -19,7 +19,7 @@ export default function Login() {
     setLoading(true);
     try {
       await login(mobileOrEmail, password);
-      navigate('/dashboard');
+      navigate('/app/dashboard');
     } catch (err) {
       setError(err.response?.data?.detail || t('authPage.errors.invalidCredentials'));
     } finally {
