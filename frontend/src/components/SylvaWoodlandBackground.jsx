@@ -19,7 +19,7 @@ export default function SylvaWoodlandBackground() {
 
     // --- Scene, Camera, Renderer ---
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x071a10, 0.035);
+    scene.fog = new THREE.FogExp2(0xe2f7ea, 0.032);
 
     const camera = new THREE.PerspectiveCamera(
       55,
@@ -27,7 +27,7 @@ export default function SylvaWoodlandBackground() {
       0.1,
       100
     );
-    camera.position.set(0, 2.2, 7.5);
+    camera.position.set(0, 2.0, 7.5);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -37,25 +37,25 @@ export default function SylvaWoodlandBackground() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
+    renderer.toneMappingExposure = 1.2;
     container.appendChild(renderer.domElement);
 
     // --- Ambient & Directional Lighting ---
-    const ambientLight = new THREE.AmbientLight(0x234d31, 1.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.2);
     scene.add(ambientLight);
 
     // Golden canopy sunlight shaft
-    const sunLight = new THREE.DirectionalLight(0xfef08a, 2.4);
+    const sunLight = new THREE.DirectionalLight(0xfef08a, 2.6);
     sunLight.position.set(5, 12, 4);
     scene.add(sunLight);
 
     // Emerald-cyan rim light for moss tips
-    const rimLight = new THREE.PointLight(0x34d399, 2.0, 18);
+    const rimLight = new THREE.PointLight(0x34d399, 1.8, 18);
     rimLight.position.set(-4, 3, 2);
     scene.add(rimLight);
 
     // Soft deep forest floor fill
-    const floorLight = new THREE.PointLight(0x15803d, 1.5, 15);
+    const floorLight = new THREE.PointLight(0x22c55e, 1.2, 15);
     floorLight.position.set(0, 0.5, 1);
     scene.add(floorLight);
 
@@ -78,9 +78,9 @@ export default function SylvaWoodlandBackground() {
     terrainGeo.computeVertexNormals();
 
     const terrainMat = new THREE.MeshStandardMaterial({
-      color: 0x133e24,
-      roughness: 0.85,
-      metalness: 0.1,
+      color: 0x2d7a46,
+      roughness: 0.8,
+      metalness: 0.08,
       flatShading: false,
     });
     const terrain = new THREE.Mesh(terrainGeo, terrainMat);
@@ -89,19 +89,19 @@ export default function SylvaWoodlandBackground() {
     // --- Procedural Ancient Woodland Root & Arch (Swept Curves) ---
     const curvePoints = [
       new THREE.Vector3(-4.5, -0.6, -1.0),
-      new THREE.Vector3(-2.8, 1.2, 0.2),
-      new THREE.Vector3(-0.5, 2.4, 0.8),
-      new THREE.Vector3(1.8, 2.1, 0.3),
-      new THREE.Vector3(3.6, 0.8, -0.5),
+      new THREE.Vector3(-2.8, 0.8, 0.2),
+      new THREE.Vector3(-0.5, 1.6, 0.6),
+      new THREE.Vector3(1.8, 1.4, 0.3),
+      new THREE.Vector3(3.6, 0.5, -0.5),
       new THREE.Vector3(4.8, -0.6, -1.5),
     ];
     const rootCurve = new THREE.CatmullRomCurve3(curvePoints);
     const rootGeo = new THREE.TubeGeometry(rootCurve, 80, 0.32, 16, false);
 
     const rootMat = new THREE.MeshStandardMaterial({
-      color: 0x22543d,
+      color: 0x357849,
       roughness: 0.75,
-      metalness: 0.15,
+      metalness: 0.1,
     });
     const rootArch = new THREE.Mesh(rootGeo, rootMat);
     scene.add(rootArch);
@@ -264,7 +264,7 @@ export default function SylvaWoodlandBackground() {
       ref={containerRef}
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse at 50% 20%, #0c2b18 0%, #06150c 60%, #030a06 100%)',
+        background: 'radial-gradient(ellipse at 50% 15%, #ecfdf5 0%, #f0fdf4 35%, #e2f7ea 70%, #d1f2dc 100%)',
       }}
       aria-hidden="true"
     />

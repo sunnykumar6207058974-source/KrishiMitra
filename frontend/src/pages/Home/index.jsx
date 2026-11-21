@@ -76,10 +76,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-100/80 border border-forest-200 text-forest-800 text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5 text-forest-700" />
-                <span>{t('home.heroBadge')}</span>
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-forest-900 tracking-tight leading-[1.15]">
                 {t('home.heroTitle1')} <br />
                 <span className="text-forest-700">{t('home.heroTitle2')}</span> <br />
@@ -173,14 +169,14 @@ export default function Home() {
 
       {/* Core Platform Modules */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs font-bold uppercase text-forest-800 tracking-wider">
+        <div className="text-center space-y-3 max-w-3xl mx-auto bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-forest-100 shadow-sm">
+          <span className="inline-block px-3 py-1 rounded-full bg-forest-100 text-forest-800 text-xs font-bold uppercase tracking-wider border border-forest-200">
             {t('home.featuresBadge')}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-forest-950 tracking-tight">
             {t('home.featuresHeading')}
           </h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             {t('home.featuresSubheading')}
           </p>
         </div>
