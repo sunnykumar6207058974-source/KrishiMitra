@@ -1,0 +1,28 @@
+{
+  "badge": "RAG Advisory Copilot",
+  "title": "Krishi AI Farming Assistant",
+  "subtitle": "Ask agricultural questions grounded in verified agricultural research and Assam farming practices.",
+  "statusReady": "Ready to help",
+  "greeting": "Namaste! I am KrishiMitra, your AI agricultural assistant. I can help you with Assam crops, soil health, weather risks, crop diseases, and farming practices. How can I help you with your field today?",
+  "suggestedHeading": "Suggested Farming Questions:",
+  "suggestedQuestions": [
+    "How should I manage soil acidity (pH 5.4) in my Cachar farm?",
+    "What is the best sowing time and variety for Sali Paddy in Assam?",
+    "How can I protect my crops from heavy rainfall?",
+    "Which crops are suitable for my soil and location?",
+    "How do I identify common diseases in rice?",
+    "What are the important farming activities this month?"
+  ],
+  "inputPlaceholder": "Ask a question about your crops, soil pH, fertilizer or weather...",
+  "btnSend": "Ask",
+  "btnClear": "Clear Conversation",
+  "clearConfirm": "Are you sure you want to clear this conversation session?",
+  "thinking": "Krishi AI is analyzing verified ICAR & AAU agronomic data...",
+  "sourcesLabel": "Knowledge Sources:",
+  "verifiedNotice": "Notice: Recommendations are verified demonstration agronomic guidance. Confirm chemical sprays with your local block agriculture extension officer.",
+  "voiceSupported": "Tap to speak your question",
+  "voiceUnsupported": "Voice input is not supported in this browser. Please type your query.",
+  "listening": "Listening... Speak now",
+  "speaking": "Krishi AI is speaking...",
+  "emptyQueryError": "Please enter a farming question before sending."
+}

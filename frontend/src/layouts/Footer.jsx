@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sprout, PhoneCall, Mail, MapPin, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { PhoneCall, Mail, MapPin, ShieldCheck } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-forest-900 text-gray-300 pt-14 pb-8 border-t border-forest-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,24 +23,26 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed mb-4">
-              An intelligent agriculture assistance platform engineered for Indian farmers to select optimal crops, monitor local micro-climates, interpret soil tests, and consult AI agronomy guidance.
+              {t('home.heroSubtitle')}
             </p>
             <div className="flex items-center gap-2 text-xs text-leaf-400 font-medium">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Grounded in ICAR & Ministry of Agriculture standards</span>
+              <ShieldCheck className="w-4 h-4 shrink-0" />
+              <span>{t('disclaimer.advisory')}</span>
             </div>
           </div>
 
           {/* Col 2: Quick Features */}
           <div>
-            <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">Core Modules</h4>
+            <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">
+              {t('home.featuresBadge')}
+            </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/crop-recommendation" className="hover:text-leaf-400 transition-colors">AI Crop Recommendation</Link></li>
-              <li><Link to="/weather" className="hover:text-leaf-400 transition-colors">Agromet Weather Advisory</Link></li>
-              <li><Link to="/mandi" className="hover:text-leaf-400 transition-colors">APMC Mandi Price Tracker</Link></li>
-              <li><Link to="/soil-health" className="hover:text-leaf-400 transition-colors">Soil Health Analyzer</Link></li>
-              <li><Link to="/crop-calendar" className="hover:text-leaf-400 transition-colors">Farming Activity Calendar</Link></li>
-              <li><Link to="/ai-chat" className="hover:text-leaf-400 transition-colors">Krishi AI Assistant</Link></li>
+              <li><Link to="/crop-recommendation" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.cropRec.title')}</Link></li>
+              <li><Link to="/weather" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.weather.title')}</Link></li>
+              <li><Link to="/mandi" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.mandi.title')}</Link></li>
+              <li><Link to="/soil-health" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.soil.title')}</Link></li>
+              <li><Link to="/crop-calendar" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.calendar.title')}</Link></li>
+              <li><Link to="/ai-assistant" className="hover:text-leaf-400 transition-colors">{t('featuresPage.items.aiChat.title')}</Link></li>
             </ul>
           </div>
 
@@ -55,35 +60,39 @@ export default function Footer() {
 
           {/* Col 4: Farmer Support */}
           <div>
-            <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">Farmer Helpline</h4>
+            <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">
+              {t('contactPage.helplineTitle')}
+            </h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2.5">
-                <PhoneCall className="w-4 h-4 text-leaf-500 mt-0.5 shrink-0" />
+                <PhoneCall className="w-4 h-4 text-leaf-400 mt-1 shrink-0" />
                 <div>
-                  <span className="block text-white font-semibold">1800-180-1551</span>
-                  <span className="text-xs text-gray-400">Kisan Call Centre (Toll-Free, 6 AM - 10 PM)</span>
+                  <span className="block font-bold text-white text-sm">{t('contactPage.tollFreeNumber')}</span>
+                  <span className="text-xs text-gray-300">{t('contactPage.tollFreeLabel')}</span>
                 </div>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-leaf-500 shrink-0" />
-                <span className="text-xs">support@krishimitra.org</span>
+                <Mail className="w-4 h-4 text-leaf-400 shrink-0" />
+                <span className="text-xs text-gray-300">{t('contactPage.supportEmail')}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-leaf-500 shrink-0" />
-                <span className="text-xs">Digital Agriculture Mission, New Delhi, India</span>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-leaf-400 mt-0.5 shrink-0" />
+                <span className="text-xs text-gray-300">
+                  {t('contactPage.address')}
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-forest-800 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>© {new Date().getFullYear()} KrishiMitra. Dedicated to Indian Farmers & Sustainable Agriculture.</p>
+        <div className="pt-8 border-t border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <div>
+            © 2026 KrishiMitra. {t('disclaimer.advisory')}.
+          </div>
           <div className="flex items-center gap-6">
-            <Link to="/about" className="hover:text-gray-200">About Platform</Link>
-            <Link to="/contact" className="hover:text-gray-200">Contact Us</Link>
-            <span className="text-leaf-500 flex items-center gap-1">
-              <HeartHandshake className="w-3.5 h-3.5" /> Made for Indian Agriculture
-            </span>
+            <Link to="/about" className="hover:text-leaf-400 transition-colors">{t('nav.about')}</Link>
+            <Link to="/features" className="hover:text-leaf-400 transition-colors">{t('nav.features')}</Link>
+            <Link to="/contact" className="hover:text-leaf-400 transition-colors">{t('nav.contact')}</Link>
           </div>
         </div>
       </div>

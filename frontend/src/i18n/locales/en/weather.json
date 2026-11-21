@@ -1,0 +1,18 @@
+{
+  "badge": "Agromet Advisory",
+  "title": "Hyperlocal Weather & Advisory",
+  "subtitle": "5-day meteorological forecasts combined with actionable stage-by-stage farming guidance.",
+  "location": "Location / District",
+  "currentWeather": "Current Field Conditions",
+  "forecast": "5-Day Forecast",
+  "temp": "Temperature",
+  "feelsLike": "Feels Like",
+  "humidity": "Humidity",
+  "windSpeed": "Wind Speed",
+  "precipitation": "Precipitation",
+  "advisoryTitle": "Agricultural Advisory Bulletin",
+  "sprayingAdvice": "Chemical Spraying Suitability",
+  "irrigationAdvice": "Irrigation Guidance",
+  "safeToSpray": "Safe for Field Spraying",
+  "avoidSpray": "Avoid Spraying Due to High Wind / Rain Risk"
+}

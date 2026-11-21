@@ -40,7 +40,7 @@ export default function Navbar() {
                 Krishi<span className="text-leaf-600">Mitra</span>
               </span>
               <span className="text-[10px] text-gray-500 tracking-wider uppercase font-semibold">
-                Smart Agro Platform
+                {t('smartAgroPlatform')}
               </span>
             </div>
           </Link>

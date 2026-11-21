@@ -21,6 +21,7 @@ import CropRecommendation from './pages/CropRecommendation';
 import Weather from './pages/Weather';
 import CropCalendar from './pages/CropCalendar';
 import AIChat from './pages/AIChat';
+import AIAssistant from './pages/AIAssistant';
 import SoilHealth from './pages/SoilHealth';
 import Mandi from './pages/Mandi';
 
@@ -56,7 +57,8 @@ export default function App() {
                 <Route path="/crop-recommendation" element={<CropRecommendation />} />
                 <Route path="/weather" element={<Weather />} />
                 <Route path="/crop-calendar" element={<ProtectedRoute><CropCalendar /></ProtectedRoute>} />
-                <Route path="/ai-chat" element={<AIChat />} />
+                <Route path="/ai-assistant" element={<AIAssistant />} />
+                <Route path="/ai-chat" element={<AIAssistant />} />
                 <Route path="/soil-health" element={<SoilHealth />} />
                 <Route path="/mandi" element={<Mandi />} />
 

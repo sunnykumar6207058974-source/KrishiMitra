@@ -1,0 +1,32 @@
+{
+  "badge": "Comprehensive Toolkit",
+  "title": "Platform Features",
+  "subtitle": "Six scientifically grounded digital tools designed specifically for Indian farming workflows.",
+  "items": {
+    "cropRec": {
+      "title": "AI Crop Recommendation",
+      "desc": "Analyzes 7 critical agronomic variables (Nitrogen, Phosphorus, Potassium, Soil pH, Temperature, Humidity, and Rainfall) through a trained Random Forest model. Evaluates regional suitability and outputs recommended sowing windows and limitation precautions."
+    },
+    "weather": {
+      "title": "Agromet Weather Advisory",
+      "desc": "Delivers 5-day localized forecasts, precipitation probability, and actionable farming alerts customized for your crop stage (irrigation timings, pest scout warnings, spraying speed safety)."
+    },
+    "soil": {
+      "title": "Soil Health Analyzer",
+      "desc": "Translates complex Soil Health Card laboratory parameters into simple ratings (Low, Medium, High) with balanced chemical and organic amendment suggestions (compost, gypsum, lime)."
+    },
+    "mandi": {
+      "title": "APMC Mandi Price Tracker",
+      "desc": "Tracks commodity market arrivals, minimum, maximum, and modal benchmark rates across Indian districts with APMC comparison tools."
+    },
+    "calendar": {
+      "title": "Dynamic Crop Calendar",
+      "desc": "Provides a stage-by-stage farming timeline (Land Prep, Sowing, Crown Root Irrigation, Top Dressing, Weeding, Harvesting) with interactive task completion tracking."
+    },
+    "aiChat": {
+      "title": "Krishi AI Assistant",
+      "desc": "A multilingual question-and-answer assistant built on Retrieval-Augmented Generation (RAG) using verified ICAR publications with strict safety disclaimers against unverified chemicals."
+    }
+  },
+  "openModule": "Open Module"
+}

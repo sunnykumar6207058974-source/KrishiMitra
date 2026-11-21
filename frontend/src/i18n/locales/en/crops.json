@@ -1,0 +1,21 @@
+{
+  "badge": "Machine Learning Model",
+  "title": "Intelligent Crop Recommendation",
+  "subtitle": "Predict the most optimal, climate-resilient, and profitable crops based on verified soil parameters.",
+  "formTitle": "Soil & Environmental Parameters",
+  "labels": {
+    "nitrogen": "Nitrogen (N) ratio",
+    "phosphorus": "Phosphorus (P) ratio",
+    "potassium": "Potassium (K) ratio",
+    "ph": "Soil pH Level",
+    "temperature": "Temperature (°C)",
+    "humidity": "Humidity (%)",
+    "rainfall": "Rainfall (mm)"
+  },
+  "btnAnalyze": "Generate Crop Advisory",
+  "resultsHeading": "Top Recommended Crops",
+  "confidenceScore": "Match Confidence",
+  "idealSeason": "Ideal Season",
+  "waterRequirement": "Water Requirement",
+  "soilRequirement": "Optimal Soil Texture"
+}

@@ -1,0 +1,35 @@
+{
+  "welcome": "Welcome back,",
+  "registeredFarm": "Registered Farm Plot",
+  "experience": "Years Experience",
+  "quickActionsHeading": "Quick Agricultural Actions",
+  "quickActions": {
+    "cropRec": "Find Suitable Crops",
+    "weather": "Check Weather",
+    "aiChat": "Ask Krishi AI",
+    "calendar": "View Crop Calendar",
+    "soil": "Analyze Soil Health",
+    "mandi": "Check Mandi Prices"
+  },
+  "weatherWidget": {
+    "title": "Hyperlocal Weather Forecast",
+    "viewFull": "5-Day Detailed Forecast",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "rainfall": "Rainfall Risk",
+    "advisory": "Current Agromet Advisory"
+  },
+  "tasksWidget": {
+    "title": "Scheduled Farming Activities",
+    "viewCalendar": "Open Full Calendar",
+    "noTasks": "No pending farming tasks. Add seasonal activities to your calendar.",
+    "markDone": "Mark Completed",
+    "completed": "Completed"
+  },
+  "mandiWidget": {
+    "title": "Live Mandi Rates",
+    "viewAll": "Explore All APMC Mandis",
+    "perQuintal": "per Quintal",
+    "modalPrice": "Modal Price"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "badge": "AGMARKNET Daily Rates",
+  "title": "APMC Mandi Price Tracker",
+  "subtitle": "Live market rates across Indian agricultural produce markets to help you time and negotiate harvest sales.",
+  "searchPlaceholder": "Search commodity (e.g. Rice, Mustard, Wheat)...",
+  "filterState": "Filter State",
+  "filterDistrict": "Filter District",
+  "table": {
+    "commodity": "Commodity",
+    "variety": "Variety",
+    "market": "Mandi / Market",
+    "district": "District",
+    "minPrice": "Min Price",
+    "maxPrice": "Max Price",
+    "modalPrice": "Modal Price",
+    "unit": "₹ / Quintal"
+  },
+  "noRecords": "No mandi prices found for the selected commodity or district."
+}

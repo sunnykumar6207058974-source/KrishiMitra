@@ -1,0 +1,23 @@
+{
+  "badge": "Soil Health Card Standards",
+  "title": "Soil Health Card Analyzer",
+  "subtitle": "Translate complex laboratory nutrient levels into clear ratings and custom organic & chemical amendment plans.",
+  "formTitle": "Soil Test Card Parameters",
+  "labels": {
+    "ph": "Soil pH",
+    "organicCarbon": "Organic Carbon (%)",
+    "nitrogen": "Available Nitrogen (kg/ha)",
+    "phosphorus": "Available Phosphorus (kg/ha)",
+    "potassium": "Available Potassium (kg/ha)",
+    "zinc": "Zinc (ppm)",
+    "boron": "Boron (ppm)"
+  },
+  "ratings": {
+    "low": "Deficient / Low",
+    "medium": "Optimal / Medium",
+    "high": "Abundant / High"
+  },
+  "acidicAlert": "High Soil Acidity Detected (pH < 5.5). Agricultural Lime application recommended.",
+  "btnAnalyze": "Analyze Soil Card",
+  "fertilizerPlan": "Custom Fertilizer & Amendment Plan"
+}

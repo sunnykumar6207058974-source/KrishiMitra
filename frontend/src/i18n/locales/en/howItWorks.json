@@ -1,0 +1,32 @@
+{
+  "badge": "Clear Workflow",
+  "title": "How KrishiMitra Works",
+  "subtitle": "An intuitive, 5-step journey transforming traditional farming intuition into scientifically validated decisions.",
+  "steps": [
+    {
+      "num": "1",
+      "title": "Profile & Farm Registration",
+      "desc": "Farmers register using their mobile number, select their state and district, and enter approximate farm size and soil type without tedious GPS or complex requirements."
+    },
+    {
+      "num": "2",
+      "title": "Soil & Parameter Entry",
+      "desc": "Enter your Soil Health Card laboratory values (N, P, K, pH) or choose your regional averages. Our soil analyzer immediately grades your soil fertility status."
+    },
+    {
+      "num": "3",
+      "title": "ML Crop Recommendation",
+      "desc": "Our machine learning pipeline compares your soil chemistry, current season, and rainfall with agronomic thresholds to recommend the most optimal and profitable crop."
+    },
+    {
+      "num": "4",
+      "title": "Dynamic Seasonal Schedule",
+      "desc": "KrishiMitra creates an automated crop calendar showing exact critical dates for irrigation, fertilizer split-applications, and pest monitoring."
+    },
+    {
+      "num": "5",
+      "title": "Weather Advisories & Mandi Tracking",
+      "desc": "Receive hyperlocal weather advisories before undertaking field spraying or watering, and monitor live APMC mandi rates to time your harvest sales."
+    }
+  ]
+}

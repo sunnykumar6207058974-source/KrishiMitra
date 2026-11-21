@@ -15,7 +15,7 @@ from app.core.config import settings
 from app.database.session import get_db
 from app.database.init_db import init_db
 from app.api import (
-    auth, farmer, farms, crops, weather, calendar, ai, soil, market, disease
+    auth, farmer, farms, crops, weather, calendar, ai, soil, market, disease, assistant
 )
 
 @asynccontextmanager
@@ -92,6 +92,7 @@ app.include_router(crops.router, prefix=api_prefix)
 app.include_router(weather.router, prefix=api_prefix)
 app.include_router(calendar.router, prefix=api_prefix)
 app.include_router(ai.router, prefix=api_prefix)
+app.include_router(assistant.router, prefix=api_prefix)
 app.include_router(soil.router, prefix=api_prefix)
 app.include_router(market.router, prefix=api_prefix)
 app.include_router(disease.router, prefix=api_prefix)

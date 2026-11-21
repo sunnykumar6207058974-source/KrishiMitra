@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserPlus, User, Phone, Mail, Lock, MapPin, Globe, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Register() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     full_name: '',
     mobile_number: '',
     email: '',
     password: '',
-    state: 'Maharashtra',
-    district: 'Pune',
+    state: 'Assam',
+    district: 'Cachar',
     preferred_language: 'en'
   });
   const [error, setError] = useState('');
@@ -43,8 +45,8 @@ export default function Register() {
           <div className="w-12 h-12 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center mx-auto">
             <UserPlus className="w-6 h-6 text-forest-800" />
           </div>
-          <h2 className="text-2xl font-extrabold text-gray-900">Farmer Registration</h2>
-          <p className="text-xs text-gray-500">Create your KrishiMitra profile for smart farm management.</p>
+          <h2 className="text-2xl font-extrabold text-gray-900">{t('authPage.register.title')}</h2>
+          <p className="text-xs text-gray-500">{t('authPage.register.subtitle')}</p>
         </div>
 
         {error && (
@@ -56,128 +58,116 @@ export default function Register() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1">Full Name *</label>
+            <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.fullName')} *</label>
             <div className="relative">
-              <User className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
+              <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
               <input
                 type="text"
                 name="full_name"
                 required
                 value={formData.full_name}
                 onChange={handleChange}
-                placeholder="e.g. Ramesh Chandra Patel"
-                className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
+                placeholder="Ramesh Patel"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Mobile Number *</label>
+              <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.mobile')} *</label>
               <div className="relative">
-                <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
+                <Phone className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
                 <input
-                  type="text"
+                  type="tel"
                   name="mobile_number"
                   required
                   value={formData.mobile_number}
                   onChange={handleChange}
-                  placeholder="10-digit number"
-                  className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
+                  placeholder="9876543210"
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Email (Optional)</label>
+              <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.email')}</label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
+                <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="name@example.com"
-                  className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
+                  placeholder="ramesh@gmail.com"
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
                 />
               </div>
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1">Password *</label>
-            <div className="relative">
-              <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
-              <input
-                type="password"
-                name="password"
-                required
-                minLength={6}
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="At least 6 characters"
-                className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">State *</label>
-              <input
-                type="text"
+              <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.state')} *</label>
+              <select
                 name="state"
-                required
                 value={formData.state}
                 onChange={handleChange}
-                placeholder="State (e.g. Maharashtra)"
-                className="w-full px-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
-              />
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
+              >
+                <option value="Assam">Assam</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Bihar">Bihar</option>
+              </select>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">District *</label>
+              <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.district')} *</label>
               <input
                 type="text"
                 name="district"
                 required
                 value={formData.district}
                 onChange={handleChange}
-                placeholder="District (e.g. Pune)"
-                className="w-full px-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700"
+                placeholder="Cachar / Kamrup"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1">Preferred Language</label>
-            <select
-              name="preferred_language"
-              value={formData.preferred_language}
-              onChange={handleChange}
-              className="w-full px-3 py-2.5 text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700 focus:ring-1 focus:ring-forest-700 bg-white"
-            >
-              <option value="en">English</option>
-              <option value="hi">हिन्दी (Hindi)</option>
-              <option value="as">অসমীয়া (Assamese)</option>
-            </select>
+            <label className="block text-xs font-semibold text-gray-700 mb-1">{t('authPage.register.password')} *</label>
+            <div className="relative">
+              <Lock className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <input
+                type="password"
+                name="password"
+                required
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="••••••••"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
+              />
+            </div>
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-forest-800 hover:bg-forest-900 text-white font-bold rounded-xl shadow-md transition-colors disabled:opacity-50"
+            className="w-full py-2.5 bg-forest-800 hover:bg-forest-900 text-white rounded-xl text-xs font-bold shadow-sm transition-colors flex items-center justify-center gap-2"
           >
-            {loading ? 'Creating Profile...' : 'Complete Registration'}
+            {loading ? t('status.loading') : t('authPage.register.btnSubmit')}
           </button>
         </form>
 
-        <div className="text-center text-xs text-gray-500">
-          Already registered?{' '}
-          <Link to="/login" className="font-semibold text-forest-800 hover:underline">
-            Sign in here
+        <p className="text-center text-xs text-gray-500">
+          {t('authPage.register.haveAccount')}{' '}
+          <Link to="/login" className="text-forest-800 font-bold hover:underline">
+            {t('authPage.register.linkLogin')}
           </Link>
-        </div>
+        </p>
       </div>
     </div>
   );

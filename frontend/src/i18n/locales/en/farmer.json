@@ -1,0 +1,16 @@
+{
+  "title": "My Farm Profile",
+  "subtitle": "Manage your agricultural land area, primary soil type, and irrigation capabilities.",
+  "labels": {
+    "farmName": "Farm / Plot Name",
+    "totalArea": "Total Land Area",
+    "landUnit": "Unit",
+    "soilType": "Primary Soil Texture",
+    "irrigation": "Primary Irrigation Source",
+    "experience": "Farming Experience (Years)",
+    "primaryCrops": "Major Crops Cultivated",
+    "location": "State & District"
+  },
+  "btnSave": "Save Farm Details",
+  "successMsg": "Farm profile updated successfully!"
+}

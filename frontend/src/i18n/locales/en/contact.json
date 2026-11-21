@@ -1,0 +1,34 @@
+{
+  "badge": "Farmer Support",
+  "title": "Contact Us & Helplines",
+  "subtitle": "Need agronomic assistance or have feedback on KrishiMitra? Our team and the national Kisan Call Centre are here to support you.",
+  "helplineTitle": "Emergency Farmer Helplines",
+  "tollFreeNumber": "1800-180-1551",
+  "tollFreeLabel": "National Kisan Call Centre (Toll-Free, 22 Languages)",
+  "supportEmail": "support@krishimitra.org",
+  "address": "Krishi Vigyan Kendra Outreach, Digital Agriculture Initiative, New Delhi & Guwahati",
+  "hours": "Operating Hours for Technical Assistance: Monday to Saturday, 8:00 AM - 7:00 PM IST.",
+  "formTitle": "Send Us a Message",
+  "formDesc": "Fill out the form below for technical support or agricultural queries.",
+  "labels": {
+    "name": "Full Name",
+    "mobile": "Mobile Number",
+    "subject": "Topic / Inquiry",
+    "message": "Your Question / Message"
+  },
+  "placeholders": {
+    "name": "e.g. Ramesh Patel",
+    "mobile": "10-digit mobile number",
+    "subject": "Select topic",
+    "message": "Describe your query or feedback..."
+  },
+  "subjects": {
+    "cropRec": "Crop Recommendation Issue",
+    "soilTest": "Soil Health Test Interpretation",
+    "weather": "Weather Advisory Query",
+    "mandi": "Mandi Rates Reporting",
+    "general": "General Feedback"
+  },
+  "btnSend": "Submit Message",
+  "successMsg": "Thank you! Your message has been received. Our agricultural extension officer will contact you shortly."
+}

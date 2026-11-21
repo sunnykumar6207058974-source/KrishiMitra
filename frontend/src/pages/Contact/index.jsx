@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { PhoneCall, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -12,10 +14,14 @@ export default function Contact() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
       <div className="text-center space-y-3">
-        <span className="text-xs font-bold uppercase text-forest-800 tracking-wider">Farmer Support</span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Contact Us & Helplines</h1>
+        <span className="text-xs font-bold uppercase text-forest-800 tracking-wider">
+          {t('contactPage.badge')}
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+          {t('contactPage.title')}
+        </h1>
         <p className="text-gray-600 text-sm max-w-xl mx-auto">
-          Need agronomic assistance or have feedback on KrishiMitra? Our team and the national Kisan Call Centre are here to support you.
+          {t('contactPage.subtitle')}
         </p>
       </div>
 
@@ -23,79 +29,93 @@ export default function Contact() {
         {/* Contact Info Card */}
         <div className="bg-forest-900 text-white p-8 rounded-2xl space-y-6 flex flex-col justify-between">
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white">Emergency Farmer Helplines</h3>
+            <h3 className="text-xl font-bold text-white">{t('contactPage.helplineTitle')}</h3>
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3">
                 <PhoneCall className="w-5 h-5 text-leaf-400 mt-1 shrink-0" />
                 <div>
-                  <span className="block font-bold text-base text-leaf-400">1800-180-1551</span>
-                  <span className="text-xs text-gray-300">National Kisan Call Centre (Toll-Free, 22 Languages)</span>
+                  <span className="block font-bold text-base text-leaf-400">{t('contactPage.tollFreeNumber')}</span>
+                  <span className="text-xs text-gray-300">{t('contactPage.tollFreeLabel')}</span>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-leaf-400 shrink-0" />
-                <span className="text-xs text-gray-300">support@krishimitra.org</span>
+                <span className="text-xs text-gray-300">{t('contactPage.supportEmail')}</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-leaf-400 mt-1 shrink-0" />
                 <span className="text-xs text-gray-300">
-                  Krishi Vigyan Kendra Outreach, Digital Agriculture Initiative, New Delhi
+                  {t('contactPage.address')}
                 </span>
               </div>
             </div>
           </div>
 
           <div className="p-4 bg-forest-800/80 rounded-xl border border-forest-700 text-xs text-gray-300 leading-relaxed">
-            Operating Hours for Technical Assistance: Monday to Saturday, 8:00 AM - 7:00 PM IST.
+            {t('contactPage.hours')}
           </div>
         </div>
 
-        {/* Message Form */}
-        <div className="bg-white p-8 rounded-2xl border border-gray-200/80 shadow-sm space-y-4">
-          <h3 className="text-lg font-bold text-gray-900">Send a Query or Feedback</h3>
+        {/* Contact Form */}
+        <div className="bg-white p-8 rounded-2xl border border-gray-200/80 shadow-sm">
           {submitted ? (
-            <div className="p-6 bg-forest-50 border border-forest-200 rounded-xl text-center space-y-2">
-              <CheckCircle2 className="w-8 h-8 text-forest-700 mx-auto" />
-              <h4 className="font-bold text-forest-900">Message Received</h4>
+            <div className="text-center py-10 space-y-4">
+              <CheckCircle2 className="w-12 h-12 text-forest-600 mx-auto" />
+              <h3 className="text-lg font-bold text-gray-900">{t('common.status.success')}</h3>
               <p className="text-xs text-gray-600">
-                Thank you for contacting KrishiMitra. Our agricultural support coordinator will review your request.
+                {t('contactPage.successMsg')}
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-900">{t('contactPage.formTitle')}</h3>
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">{t('contactPage.labels.name')}</label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Ramesh Patel"
-                  className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700"
+                  placeholder={t('contactPage.placeholders.name')}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
                 />
               </div>
+
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Mobile or Email</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">{t('contactPage.labels.mobile')}</label>
                 <input
-                  type="text"
+                  type="tel"
                   required
-                  placeholder="Contact details"
-                  className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700"
+                  placeholder={t('contactPage.placeholders.mobile')}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
                 />
               </div>
+
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">Message</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">{t('contactPage.labels.subject')}</label>
+                <select className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700">
+                  <option>{t('contactPage.subjects.cropRec')}</option>
+                  <option>{t('contactPage.subjects.soilTest')}</option>
+                  <option>{t('contactPage.subjects.weather')}</option>
+                  <option>{t('contactPage.subjects.mandi')}</option>
+                  <option>{t('contactPage.subjects.general')}</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">{t('contactPage.labels.message')}</label>
                 <textarea
+                  rows={3}
                   required
-                  rows={4}
-                  placeholder="Describe your farming inquiry, crop question, or platform feedback..."
-                  className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:border-forest-700"
+                  placeholder={t('contactPage.placeholders.message')}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs text-gray-800 focus:outline-none focus:border-forest-700"
                 />
               </div>
+
               <button
                 type="submit"
-                className="w-full py-2.5 bg-forest-800 text-white font-bold rounded-xl hover:bg-forest-900 shadow-sm flex items-center justify-center gap-2"
+                className="w-full py-2.5 bg-forest-800 hover:bg-forest-900 text-white rounded-xl text-xs font-bold shadow-sm transition-colors flex items-center justify-center gap-1.5"
               >
-                <Send className="w-4 h-4" />
-                <span>Submit Query</span>
+                <Send className="w-3.5 h-3.5" />
+                <span>{t('contactPage.btnSend')}</span>
               </button>
             </form>
           )}

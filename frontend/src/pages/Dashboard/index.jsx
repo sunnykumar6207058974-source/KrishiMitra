@@ -5,10 +5,12 @@ import {
   CheckCircle2, Clock, Plus, ArrowRight, ShieldCheck, TrendingUp, AlertTriangle
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import api from '../../services/api';
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [profile, setProfile] = useState(null);
   const [weather, setWeather] = useState(null);
   const [tasks, setTasks] = useState([]);
@@ -48,12 +50,12 @@ export default function Dashboard() {
   };
 
   const quickActions = [
-    { title: "Find Suitable Crops", icon: Sprout, link: "/crop-recommendation", color: "bg-emerald-50 text-emerald-800 border-emerald-200" },
-    { title: "Check Weather", icon: CloudSun, link: "/weather", color: "bg-blue-50 text-blue-800 border-blue-200" },
-    { title: "Ask Krishi AI", icon: MessageSquareText, link: "/ai-chat", color: "bg-purple-50 text-purple-800 border-purple-200" },
-    { title: "View Crop Calendar", icon: Calendar, link: "/crop-calendar", color: "bg-amber-50 text-amber-800 border-amber-200" },
-    { title: "Analyze Soil Health", icon: Activity, link: "/soil-health", color: "bg-lime-50 text-lime-800 border-lime-200" },
-    { title: "Check Mandi Prices", icon: Store, link: "/mandi", color: "bg-orange-50 text-orange-800 border-orange-200" },
+    { title: t('dash.quickActions.cropRec'), icon: Sprout, link: "/crop-recommendation", color: "bg-emerald-50 text-emerald-800 border-emerald-200" },
+    { title: t('dash.quickActions.weather'), icon: CloudSun, link: "/weather", color: "bg-blue-50 text-blue-800 border-blue-200" },
+    { title: t('dash.quickActions.aiChat'), icon: MessageSquareText, link: "/ai-assistant", color: "bg-purple-50 text-purple-800 border-purple-200" },
+    { title: t('dash.quickActions.calendar'), icon: Calendar, link: "/crop-calendar", color: "bg-amber-50 text-amber-800 border-amber-200" },
+    { title: t('dash.quickActions.soil'), icon: Activity, link: "/soil-health", color: "bg-lime-50 text-lime-800 border-lime-200" },
+    { title: t('dash.quickActions.mandi'), icon: Store, link: "/mandi", color: "bg-orange-50 text-orange-800 border-orange-200" },
   ];
 
   return (
@@ -65,7 +67,7 @@ export default function Dashboard() {
             <span>🇮🇳 Registered Progressive Farmer</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black">
-            Namaste, {user?.full_name || 'Farmer'}! 🌾
+            {t('dash.welcome')} {user?.full_name || 'Farmer'}! 🌾
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-xs text-gray-200">
             <span>📍 Location: <strong>{user?.district || 'Pune'}, {user?.state || 'Maharashtra'}</strong></span>
@@ -78,7 +80,7 @@ export default function Dashboard() {
 
       {/* Quick Actions Grid */}
       <div className="space-y-3">
-        <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">Quick Actions</h2>
+        <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">{t('dash.quickActionsHeading')}</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {quickActions.map((qa) => {
             const Icon = qa.icon;

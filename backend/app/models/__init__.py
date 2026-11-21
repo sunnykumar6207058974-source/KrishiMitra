@@ -1,11 +1,11 @@
 from app.models.entities import (
     User, FarmerProfile, Farm, SoilReport, Crop, CropSeason,
     CropRecommendation, WeatherRecord, FarmingTask, AdvisoryRecord,
-    MandiPrice, ChatHistory, KnowledgeSource
+    MandiPrice, ChatHistory, KnowledgeSource, Conversation, ChatMessage, DocumentChunk
 )
 
 __all__ = [
     "User", "FarmerProfile", "Farm", "SoilReport", "Crop", "CropSeason",
     "CropRecommendation", "WeatherRecord", "FarmingTask", "AdvisoryRecord",
-    "MandiPrice", "ChatHistory", "KnowledgeSource"
+    "MandiPrice", "ChatHistory", "KnowledgeSource", "Conversation", "ChatMessage", "DocumentChunk"
 ]

@@ -1,0 +1,24 @@
+{
+  "purposeBadge": "Our Purpose",
+  "title": "About KrishiMitra",
+  "subtitle": "KrishiMitra was created with a single mission: to bridge the gap between agricultural scientific research and the everyday decisions of Indian farmers.",
+  "cards": {
+    "scientificRigor": {
+      "title": "Scientific Rigor",
+      "desc": "Every recommendation is grounded in verified ICAR packages of practices, Indian meteorological division guidelines, and Soil Health Card nutrient standards."
+    },
+    "accessibility": {
+      "title": "Farmer-First Accessibility",
+      "desc": "Built mobile-first with high-contrast UI, multi-language support (English, Hindi, Assamese), and large touch targets designed for use directly on the field."
+    },
+    "zeroHallucinations": {
+      "title": "Zero Hallucinations",
+      "desc": "Our AI assistant uses Retrieval-Augmented Generation (RAG) with verified citations and strict guardrails preventing fabrication of chemical dosages or pesticide advice."
+    }
+  },
+  "mission": {
+    "title": "Alignment with Digital Agriculture Mission",
+    "desc": "KrishiMitra aligns directly with the Government of India's Digital Agriculture Mission, empowering smallholder farmers with open digital infrastructure, crop health monitoring, and direct price transparency to eliminate exploitative intermediary markups.",
+    "cta": "Join KrishiMitra Today"
+  }
+}

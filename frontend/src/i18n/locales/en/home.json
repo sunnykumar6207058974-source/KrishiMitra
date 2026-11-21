@@ -1,0 +1,55 @@
+{
+  "heroBadge": "AI-Powered Digital Agriculture Mission",
+  "heroTitle1": "Smart Farming.",
+  "heroTitle2": "Better Decisions.",
+  "heroTitle3": "Stronger Harvests.",
+  "heroSubtitle": "Empower your field with machine learning crop recommendations, hyperlocal weather advisories, soil health diagnostics, and verified market trends.",
+  "btnGetStarted": "Get Started Free",
+  "btnTestDemo": "Test Demo Account",
+  "featuresBadge": "Platform Capabilities",
+  "featuresHeading": "Everything Indian Farmers Need to Thrive",
+  "featuresSubheading": "Integrated tools engineered to transform complex agronomic scientific data into everyday actionable farming decisions.",
+  "features": {
+    "cropRec": {
+      "title": "AI Crop Recommendation",
+      "desc": "Validated machine learning model recommending the best crops using soil N-P-K, pH, temperature, and local rainfall.",
+      "badge": "ML Powered"
+    },
+    "weather": {
+      "title": "Agromet Weather Advisory",
+      "desc": "Hyperlocal weather forecasts and crop-growth stage advisories for irrigation, spraying, and harvesting precautions.",
+      "badge": "IMD Grounded"
+    },
+    "mandi": {
+      "title": "APMC Mandi Price Tracker",
+      "desc": "Live market commodity rates across Indian mandis with minimum, maximum, and modal price trends.",
+      "badge": "AGMARKNET"
+    },
+    "soil": {
+      "title": "Soil Health Analyzer",
+      "desc": "Evaluate your Soil Health Card test values, calculate nutrient deficiency, and get custom organic & fertilizer plans.",
+      "badge": "Soil Card"
+    },
+    "calendar": {
+      "title": "Dynamic Crop Calendar",
+      "desc": "Automated seasonal schedule for sowing, weeding, crown root irrigation, and harvesting with task tracking.",
+      "badge": "Scheduler"
+    },
+    "aiChat": {
+      "title": "Krishi AI Assistant",
+      "desc": "Agricultural chatbot grounded in verified ICAR research publications with multilingual voice & text support.",
+      "badge": "RAG AI"
+    }
+  },
+  "workflowBadge": "How It Works",
+  "workflowHeading": "Four Steps to Higher Farm Yield",
+  "steps": [
+    { "step": "01", "title": "Enter Soil & Farm Profile", "desc": "Input your soil test values (N, P, K, pH) or select your regional district." },
+    { "step": "02", "title": "Get ML Recommendations", "desc": "Our validated Random Forest pipeline determines the most profitable and suitable crop." },
+    { "step": "03", "title": "Follow Seasonal Calendar", "desc": "Receive automated alerts for irrigation, fertilizer split-doses, and weather precautions." },
+    { "step": "04", "title": "Track Market & Sell Smart", "desc": "Check live APMC mandi prices in your district to choose the best time and market to sell." }
+  ],
+  "ctaHeading": "Ready to Transform Your Farming Decisions?",
+  "ctaSubheading": "Join progressive Indian farmers making smarter crop and marketing choices today with verified ICAR guidance.",
+  "btnRegisterNow": "Register Now - 100% Free"
+}

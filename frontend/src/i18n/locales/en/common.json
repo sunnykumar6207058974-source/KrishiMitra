@@ -1,0 +1,56 @@
+{
+  "brand": "KrishiMitra",
+  "brandHindi": "कृषि मित्र",
+  "tagline": "Smart Farming. Better Decisions. Stronger Harvests.",
+  "smartAgroPlatform": "Smart Agro Platform",
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "contact": "Contact",
+    "dashboard": "Farmer Dashboard",
+    "cropAdvisory": "Crop Advisory",
+    "weather": "Weather",
+    "calendar": "Crop Calendar",
+    "aiAssistant": "Krishi AI Assistant",
+    "soilHealth": "Soil Health",
+    "mandiPrices": "Mandi Prices"
+  },
+  "buttons": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "getStarted": "Get Started Free",
+    "testDemo": "Test Demo Account",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "viewAll": "View All",
+    "back": "Back",
+    "send": "Send Message",
+    "ask": "Ask",
+    "refresh": "Refresh",
+    "download": "Download Report",
+    "calculate": "Analyze Soil"
+  },
+  "status": {
+    "online": "Online",
+    "connected": "Connected",
+    "offline": "Offline",
+    "loading": "Loading...",
+    "processing": "Processing...",
+    "success": "Success",
+    "error": "Error"
+  },
+  "disclaimer": {
+    "advisory": "Grounded in ICAR & Ministry of Agriculture standards",
+    "safety": "Notice: Recommendations are verified demonstration agronomic guidance. Confirm chemical sprays with your local block agriculture extension officer."
+  },
+  "language": {
+    "en": "English",
+    "hi": "हिन्दी (Hindi)"
+  }
+}
