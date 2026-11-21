@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-forest-900 text-gray-300 pt-14 pb-8 border-t border-forest-800">
+    <footer className="relative z-20 bg-forest-900 text-gray-300 pt-14 pb-8 border-t border-forest-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Col 1: Brand Info */}

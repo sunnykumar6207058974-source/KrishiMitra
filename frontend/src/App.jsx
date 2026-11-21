@@ -32,7 +32,7 @@ function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-agriBg text-agriDark selection:bg-forest-100 selection:text-forest-900">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Outlet />
       </main>
       <Footer />
