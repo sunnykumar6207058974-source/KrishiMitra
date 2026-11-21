@@ -7,6 +7,7 @@ import {
 import { useLanguage } from '../../context/LanguageContext';
 import { useAuth } from '../../context/AuthContext';
 import ConnectionStatusBanner from '../../components/ConnectionStatusBanner';
+import SylvaWoodlandBackground from '../../components/SylvaWoodlandBackground';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -65,9 +66,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-16 pb-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-forest-50/80 via-white to-agriBg pt-16 pb-20 border-b border-gray-100">
+    <div className="relative min-h-screen">
+      {/* 3D Sylva Woodland Interactive Living Nature Background */}
+      <SylvaWoodlandBackground />
+
+      <div className="relative z-10 space-y-16 pb-16">
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-forest-50/75 via-white/85 to-agriBg/90 backdrop-blur-xs pt-16 pb-20 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -266,6 +271,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
