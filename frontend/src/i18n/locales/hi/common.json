@@ -52,5 +52,47 @@
   "language": {
     "en": "English",
     "hi": "हिन्दी (Hindi)"
+  },
+  "sidebar": {
+    "mainModules": "मुख्य सेवाएं",
+    "dashboard": "डैशबोर्ड",
+    "cropRec": "फसल की सिफारिश",
+    "weather": "मौसम और कृषि सलाह",
+    "calendar": "फसल कैलेंडर",
+    "soilHealth": "मृदा स्वास्थ्य",
+    "disease": "फसल रोग निदान",
+    "mandi": "मंडी भाव",
+    "aiAssistant": "कृषि AI सहायक",
+    "myFarm": "मेरा खेत",
+    "settings": "सेटिंग्स और प्रोफाइल",
+    "logout": "लॉग आउट"
+  },
+  "topbar": {
+    "search": "फसल, मौसम, सलाह, मंडी भाव खोजें...",
+    "notifications": "सूचनाएं",
+    "noNotifications": "कोई नई सूचना नहीं है",
+    "markAllRead": "सभी को पढ़ा हुआ चिह्नित करें"
+  },
+  "routes": {
+    "dashboard": "किसान डैशबोर्ड",
+    "cropRec": "फसल की सिफारिश",
+    "weather": "मौसम एवं कृषि-मौसम सलाह",
+    "calendar": "फसल कैलेंडर एवं कृषि कार्य",
+    "soilHealth": "मृदा स्वास्थ्य कार्ड विश्लेषक",
+    "disease": "फसल रोग एवं कीट निदान",
+    "mandi": "APMC मंडी बाजार भाव",
+    "aiAssistant": "कृषि AI कृषि सहायक",
+    "myFarm": "मेरे खेत का विवरण",
+    "settings": "सेटिंग्स एवं प्रोफाइल",
+    "overview": "अवलोकन",
+    "agronomy": "शस्य विज्ञान",
+    "climate": "जलवायु एवं मौसम",
+    "operations": "कृषि परिचालन",
+    "soilTesting": "मृदा परीक्षण",
+    "plantHealth": "पौध स्वास्थ्य",
+    "marketing": "बाजार भाव",
+    "aiAdvisory": "AI कृषि सलाह",
+    "farmProfile": "खेत प्रोफाइल",
+    "preferences": "प्राथमिकताएं"
   }
 }

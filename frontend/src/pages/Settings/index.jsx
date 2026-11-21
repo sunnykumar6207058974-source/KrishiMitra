@@ -6,7 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 
 export default function Settings() {
   const { user } = useAuth();
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
   const [notifications, setNotifications] = useState({
     weatherAlerts: true,
     taskReminders: true,
@@ -23,15 +23,15 @@ export default function Settings() {
   return (
     <div className="space-y-8 max-w-4xl">
       <PageHeader
-        badge="Account & System"
-        title="Settings & Profile Preferences"
-        subtitle="Manage your regional language, communication preferences, and registered farmer details."
+        badge={t('settingsPage.badge', 'Account & System')}
+        title={t('settingsPage.title', 'Settings & Profile Preferences')}
+        subtitle={t('settingsPage.subtitle', 'Manage your regional language, communication preferences, and registered farmer details.')}
       />
 
       {saved && (
         <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-          <span>Preferences updated successfully!</span>
+          <span>{t('settingsPage.saved', 'Preferences updated successfully!')}</span>
         </div>
       )}
 
@@ -41,14 +41,15 @@ export default function Settings() {
         <div className="bg-km-surface p-6 rounded-3xl border border-km-border shadow-subtle space-y-4">
           <div className="flex items-center gap-2 border-b border-km-border/60 pb-3">
             <Globe className="w-4 h-4 text-km-sage" />
-            <h3 className="text-sm font-bold text-km-dark">Interface & Advisory Language</h3>
+            <h3 className="text-sm font-bold text-km-dark">
+              {t('settingsPage.languageTitle', 'Interface & Advisory Language')}
+            </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { id: 'en', label: 'English', desc: 'Default Interface' },
-              { id: 'as', label: 'অসমীয়া (Assamese)', desc: 'Regional Focus' },
-              { id: 'hi', label: 'हिन्दी (Hindi)', desc: 'National Language' },
+              { id: 'en', label: 'English', desc: 'Default Interface (Standard)' },
+              { id: 'hi', label: 'हिन्दी (Hindi)', desc: 'राष्ट्रीय भाषा (National Language)' },
             ].map((item) => (
               <div
                 key={item.id}
@@ -73,14 +74,28 @@ export default function Settings() {
         <div className="bg-km-surface p-6 rounded-3xl border border-km-border shadow-subtle space-y-4">
           <div className="flex items-center gap-2 border-b border-km-border/60 pb-3">
             <Bell className="w-4 h-4 text-km-sage" />
-            <h3 className="text-sm font-bold text-km-dark">Notification Alerts</h3>
+            <h3 className="text-sm font-bold text-km-dark">
+              {t('settingsPage.notificationsTitle', 'Notification Alerts')}
+            </h3>
           </div>
 
           <div className="space-y-3">
             {[
-              { key: 'weatherAlerts', title: 'Severe Weather & Rain Alerts', desc: 'Receive warnings about sudden rain, overcast, or heat waves in your district.' },
-              { key: 'taskReminders', title: 'Crop Activity Due Reminders', desc: 'Alerts for upcoming sowing, irrigation, and fertilizer split doses.' },
-              { key: 'mandiPriceUpdates', title: 'Weekly Mandi Price Digest', desc: 'Summary of wholesale arrival prices for your primary crops in local APMCs.' },
+              {
+                key: 'weatherAlerts',
+                title: t('settingsPage.weatherAlerts', 'Severe Weather & Rain Alerts'),
+                desc: t('settingsPage.weatherAlertsDesc', 'Receive warnings about sudden rain, overcast, or heat waves in your district.')
+              },
+              {
+                key: 'taskReminders',
+                title: t('settingsPage.taskReminders', 'Crop Activity Due Reminders'),
+                desc: t('settingsPage.taskRemindersDesc', 'Alerts for upcoming sowing, irrigation, and fertilizer split doses.')
+              },
+              {
+                key: 'mandiPriceUpdates',
+                title: t('settingsPage.mandiUpdates', 'Weekly Mandi Price Digest'),
+                desc: t('settingsPage.mandiUpdatesDesc', 'Summary of wholesale arrival prices for your primary crops in local APMCs.')
+              },
             ].map((n) => (
               <div key={n.key} className="flex items-center justify-between p-3 rounded-2xl bg-km-bg/60 border border-km-border">
                 <div>
@@ -102,12 +117,16 @@ export default function Settings() {
         <div className="bg-km-surface p-6 rounded-3xl border border-km-border shadow-subtle space-y-4">
           <div className="flex items-center gap-2 border-b border-km-border/60 pb-3">
             <User className="w-4 h-4 text-km-sage" />
-            <h3 className="text-sm font-bold text-km-dark">Registered Farmer Details</h3>
+            <h3 className="text-sm font-bold text-km-dark">
+              {t('settingsPage.farmerProfileTitle', 'Registered Farmer Details')}
+            </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div>
-              <label className="text-[10px] text-km-subtext font-semibold uppercase block mb-1">Full Name</label>
+              <label className="text-[10px] text-km-subtext font-semibold uppercase block mb-1">
+                {t('settingsPage.fullName', 'Full Name')}
+              </label>
               <input
                 type="text"
                 disabled
@@ -116,7 +135,9 @@ export default function Settings() {
               />
             </div>
             <div>
-              <label className="text-[10px] text-km-subtext font-semibold uppercase block mb-1">Mobile Number</label>
+              <label className="text-[10px] text-km-subtext font-semibold uppercase block mb-1">
+                {t('settingsPage.phone', 'Mobile Number')}
+              </label>
               <input
                 type="text"
                 disabled
@@ -131,7 +152,7 @@ export default function Settings() {
           type="submit"
           className="px-6 py-3 bg-km-deep hover:bg-km-sage text-white text-xs font-bold rounded-2xl shadow-subtle transition-colors"
         >
-          Save Preferences
+          {t('settingsPage.btnSave', 'Save Preferences')}
         </button>
       </form>
     </div>

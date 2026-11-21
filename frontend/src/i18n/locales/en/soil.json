@@ -1,23 +1,20 @@
 {
-  "badge": "Soil Health Card Standards",
+  "badge": "Soil Health Division",
   "title": "Soil Health Card Analyzer",
-  "subtitle": "Translate complex laboratory nutrient levels into clear ratings and custom organic & chemical amendment plans.",
-  "formTitle": "Soil Test Card Parameters",
-  "labels": {
-    "ph": "Soil pH",
-    "organicCarbon": "Organic Carbon (%)",
-    "nitrogen": "Available Nitrogen (kg/ha)",
-    "phosphorus": "Available Phosphorus (kg/ha)",
-    "potassium": "Available Potassium (kg/ha)",
-    "zinc": "Zinc (ppm)",
-    "boron": "Boron (ppm)"
-  },
-  "ratings": {
-    "low": "Deficient / Low",
-    "medium": "Optimal / Medium",
-    "high": "Abundant / High"
-  },
-  "acidicAlert": "High Soil Acidity Detected (pH < 5.5). Agricultural Lime application recommended.",
-  "btnAnalyze": "Analyze Soil Card",
-  "fertilizerPlan": "Custom Fertilizer & Amendment Plan"
+  "subtitle": "Benchmark your laboratory soil test parameters against Ministry of Agriculture standards for Assam acidic alluvial soils.",
+  "uploadCardTitle": "Upload Soil Health Card (SHC)",
+  "uploadCardDesc": "Upload your official test report (PDF or Image) issued by your District Soil Testing Laboratory.",
+  "clickUpload": "Click to select or drag & drop",
+  "supports": "Supports PDF, JPG, PNG up to 10MB",
+  "reading": "Reading Soil Health Card parameters...",
+  "characteristicTitle": "Assam Soil Characteristic Note",
+  "characteristicDesc": "Most soils in Cachar & Brahmaputra valley have pH between 4.8 and 5.6. Acidity restricts phosphorus uptake unless balanced with agricultural lime or organic matter.",
+  "officialSample": "Official Benchmark Sample",
+  "cardVerified": "Card Verified",
+  "issuedBy": "Issued by",
+  "roadmapTitle": "Agronomic Fertilizer & Amendment Roadmap",
+  "soilPh": "Soil pH",
+  "nitrogen": "Nitrogen (N)",
+  "phosphorus": "Phosphorus (P)",
+  "potassium": "Potassium (K)"
 }

@@ -3,8 +3,10 @@ import { Sprout, Sparkles, CheckCircle2, AlertTriangle, Info, Sliders, MapPin } 
 import PageHeader from '../../components/PageHeader';
 import CropCard from '../../components/CropCard';
 import { RECOMMENDED_CROPS_MOCK, ASSAM_LOCATIONS } from '../../data/mockData';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function CropRecommendation() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     location: 'silchar',
     soilType: 'Heavy Alluvial Clay Loam',
@@ -38,9 +40,9 @@ export default function CropRecommendation() {
   return (
     <div className="space-y-8">
       <PageHeader
-        badge="Assam Agronomy Module"
-        title="AI Crop Recommendation"
-        subtitle="Input soil laboratory values and environmental conditions to identify suitable crops with high yield viability in Assam river basins."
+        badge={t('cropsPage.badge', 'Assam Agronomy Module')}
+        title={t('cropsPage.title', 'AI Crop Recommendation')}
+        subtitle={t('cropsPage.subtitle', 'Input soil laboratory values and environmental conditions to identify suitable crops with high yield viability in Assam river basins.')}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -48,11 +50,11 @@ export default function CropRecommendation() {
         <form onSubmit={handleRecommend} className="lg:col-span-5 bg-km-surface p-6 sm:p-7 rounded-3xl border border-km-border shadow-subtle space-y-5">
           <div className="flex items-center gap-2 pb-2 border-b border-km-border/60">
             <Sliders className="w-4 h-4 text-km-sage" />
-            <h3 className="text-sm font-bold text-km-dark">Soil Chemistry & Field Conditions</h3>
+            <h3 className="text-sm font-bold text-km-dark">{t('cropsPage.formTitle', 'Soil Chemistry & Field Conditions')}</h3>
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-km-dark mb-1">Target Location in Assam</label>
+            <label className="block text-xs font-semibold text-km-dark mb-1">{t('cropsPage.targetLocation', 'Target Location in Assam')}</label>
             <div className="relative">
               <MapPin className="w-3.5 h-3.5 text-km-subtext absolute left-3 top-3" />
               <select
@@ -167,7 +169,7 @@ export default function CropRecommendation() {
             className="w-full py-3 bg-km-deep hover:bg-km-sage text-white text-xs font-bold rounded-2xl shadow-subtle transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Sprout className="w-4 h-4 text-leaf-400" />
-            <span>{loading ? 'Evaluating Suitability Matrix...' : 'Recommend Suitable Crops'}</span>
+            <span>{loading ? t('cropsPage.analyzing', 'Evaluating Suitability Matrix...') : t('cropsPage.btnSubmit', 'Recommend Suitable Crops')}</span>
           </button>
         </form>
 
@@ -175,7 +177,7 @@ export default function CropRecommendation() {
         <div className="lg:col-span-7 space-y-6">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-km-dark uppercase tracking-wider">
-              Assam Agronomic Matches ({results.length})
+              {t('cropsPage.resultsTitle', 'Assam Agronomic Matches')} ({results.length})
             </span>
             <span className="text-[10px] text-km-subtext font-medium bg-km-surface px-2.5 py-1 rounded-full border border-km-border">
               Assam Agricultural University Package of Practices

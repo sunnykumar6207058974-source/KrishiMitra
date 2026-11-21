@@ -1,0 +1,20 @@
+{
+  "badge": "Account & System",
+  "title": "Settings & Profile Preferences",
+  "subtitle": "Manage your regional language, communication preferences, and registered farmer details.",
+  "saved": "Preferences updated successfully!",
+  "languageTitle": "Interface & Advisory Language",
+  "notificationsTitle": "Notification Alerts",
+  "weatherAlerts": "Severe Weather & Rain Alerts",
+  "weatherAlertsDesc": "Receive warnings about sudden rain, overcast, or heat waves in your district.",
+  "taskReminders": "Crop Activity Due Reminders",
+  "taskRemindersDesc": "Alerts for upcoming sowing, irrigation, and fertilizer split doses.",
+  "mandiUpdates": "Weekly Mandi Price Digest",
+  "mandiUpdatesDesc": "Summary of wholesale arrival prices for your primary crops in local APMCs.",
+  "farmerProfileTitle": "Registered Farmer Profile",
+  "fullName": "Full Name",
+  "phone": "Registered Mobile Number",
+  "primaryState": "State & Agricultural Zone",
+  "district": "District",
+  "btnSave": "Save Settings"
+}

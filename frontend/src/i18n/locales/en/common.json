@@ -52,5 +52,47 @@
   "language": {
     "en": "English",
     "hi": "हिन्दी (Hindi)"
+  },
+  "sidebar": {
+    "mainModules": "Main Modules",
+    "dashboard": "Dashboard",
+    "cropRec": "Crop Recommendation",
+    "weather": "Weather & Advisory",
+    "calendar": "Crop Calendar",
+    "soilHealth": "Soil Health",
+    "disease": "Disease Detection",
+    "mandi": "Market Prices",
+    "aiAssistant": "AI Farming Assistant",
+    "myFarm": "My Farm",
+    "settings": "Settings & Profile",
+    "logout": "Logout"
+  },
+  "topbar": {
+    "search": "Search crops, weather, advisories, mandi rates...",
+    "notifications": "Notifications",
+    "noNotifications": "No new notifications",
+    "markAllRead": "Mark all as read"
+  },
+  "routes": {
+    "dashboard": "Farmer Dashboard",
+    "cropRec": "Crop Recommendation",
+    "weather": "Weather & Agromet Advisory",
+    "calendar": "Farming Calendar & Tasks",
+    "soilHealth": "Soil Health Card Analyzer",
+    "disease": "Crop Disease Detection",
+    "mandi": "APMC Mandi Market Prices",
+    "aiAssistant": "Krishi AI Farming Assistant",
+    "myFarm": "My Farm Details",
+    "settings": "Settings & Profile",
+    "overview": "Overview",
+    "agronomy": "Agronomy",
+    "climate": "Climate",
+    "operations": "Operations",
+    "soilTesting": "Soil Testing",
+    "plantHealth": "Plant Health",
+    "marketing": "Marketing",
+    "aiAdvisory": "AI Advisory",
+    "farmProfile": "Farm Profile",
+    "preferences": "Preferences"
   }
 }

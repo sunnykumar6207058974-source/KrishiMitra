@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ScanEye, UploadCloud, CheckCircle2, AlertTriangle, ShieldAlert, PhoneCall, RefreshCw, X } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function DiseaseDetection() {
+  const { t } = useLanguage();
   const [previewImage, setPreviewImage] = useState(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [result, setResult] = useState(null);
@@ -24,22 +26,7 @@ export default function DiseaseDetection() {
     if (!previewImage) return;
     setAnalyzing(true);
     setTimeout(() => {
-      setResult({
-        condition: 'Suspected Rice Blast / Brown Leaf Spot',
-        confidence: 'Indicative AI Observation (Demonstration)',
-        pathogen: 'Magnaporthe oryzae (Fungal spore susceptibility)',
-        visibleSymptoms: [
-          'Spindle-shaped elliptical lesions with greyish center on leaf blades.',
-          'Brownish margins spreading on upper canopy under humid cloud cover.'
-        ],
-        preventivePractices: [
-          'Avoid excessive split-doses of nitrogenous urea fertilizers.',
-          'Maintain field alley aeration (T-shape path) in dense Sali rice.',
-          'Spray bio-fungicide Pseudomonas fluorescens @ 2.5g/Litre water.'
-        ],
-        disclaimer: '⚠️ Diagnostic Notice: An image analysis alone cannot provide a definitive plant pathology test. Do not apply unregistered chemical pesticides without consultation.',
-        expertCall: 'Kisan Call Centre Toll-Free: 1800-180-1551 (Available in Assamese & Bengali)'
-      });
+      setResult(true);
       setAnalyzing(false);
     }, 800);
   };
@@ -47,21 +34,27 @@ export default function DiseaseDetection() {
   return (
     <div className="space-y-8">
       <PageHeader
-        badge="Plant Pathology Module"
-        title="Crop Disease & Pest Detection"
-        subtitle="Upload photos of crop leaves or stems to identify visible symptoms and preventive practices."
+        badge={t('diseasePage.badge', 'Plant Pathology Module')}
+        title={t('diseasePage.title', 'Crop Disease & Pest Detection')}
+        subtitle={t('diseasePage.subtitle', 'Upload photos of crop leaves or stems to identify visible symptoms and preventive practices.')}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Upload & Preview Card (5 cols) */}
         <div className="lg:col-span-5 bg-km-surface p-6 rounded-3xl border border-km-border shadow-subtle space-y-5">
-          <h3 className="text-sm font-bold text-km-dark">Upload Crop Image</h3>
+          <h3 className="text-sm font-bold text-km-dark">
+            {t('diseasePage.uploadTitle', 'Upload Crop Image')}
+          </h3>
 
           {!previewImage ? (
             <label className="border-2 border-dashed border-km-border hover:border-km-sage rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors bg-km-bg/50 hover:bg-km-bg">
               <ScanEye className="w-10 h-10 text-km-sage mb-2" />
-              <span className="text-xs font-bold text-km-dark block">Click to select leaf image</span>
-              <span className="text-[10px] text-km-subtext block mt-1">Take photo in clear daylight</span>
+              <span className="text-xs font-bold text-km-dark block">
+                {t('diseasePage.clickUpload', 'Click to select leaf image')}
+              </span>
+              <span className="text-[10px] text-km-subtext block mt-1">
+                {t('diseasePage.daylightNote', 'Take photo in clear daylight')}
+              </span>
               <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
             </label>
           ) : (
@@ -82,16 +75,16 @@ export default function DiseaseDetection() {
               onClick={handleSampleImage}
               className="flex-1 py-2 text-xs font-bold text-km-sage bg-km-bg hover:bg-km-borderLight rounded-xl border border-km-border transition-colors"
             >
-              Load Sample Leaf
+              {t('diseasePage.loadSample', 'Load Sample Leaf')}
             </button>
             <button
               type="button"
               onClick={handleAnalyze}
               disabled={!previewImage || analyzing}
-              className="flex-1 py-2 text-xs font-bold text-white bg-km-deep hover:bg-km-sage rounded-xl transition-colors disabled:opacity-50 flex items-center justify-center gap-1.5"
+              className="flex-1 py-2 text-xs font-bold text-white bg-km-deep hover:bg-km-sage rounded-xl transition-colors disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-subtle"
             >
               <ScanEye className="w-4 h-4" />
-              <span>{analyzing ? 'Analyzing...' : 'Analyze Image'}</span>
+              <span>{analyzing ? t('diseasePage.analyzing', 'Analyzing...') : t('diseasePage.analyzeBtn', 'Analyze Image')}</span>
             </button>
           </div>
         </div>
@@ -103,57 +96,75 @@ export default function DiseaseDetection() {
               <div className="flex items-center justify-between border-b border-km-border/60 pb-3">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-km-sage block">
-                    Diagnostic AI Observation
+                    {t('diseasePage.diagnosticResult', 'Diagnostic AI Observation')}
                   </span>
-                  <h3 className="text-lg font-bold text-km-dark">{result.condition}</h3>
-                  <span className="text-xs text-km-subtext italic">{result.pathogen}</span>
+                  <h3 className="text-lg font-bold text-km-dark">
+                    {t('diseasePage.sample.condition', 'Suspected Rice Blast / Brown Leaf Spot')}
+                  </h3>
+                  <span className="text-xs text-km-subtext italic">
+                    {t('diseasePage.sample.pathogen', 'Magnaporthe oryzae (Fungal spore susceptibility)')}
+                  </span>
                 </div>
                 <span className="text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded-full">
-                  Demonstration Result
+                  {t('diseasePage.demonstrationResult', 'Demonstration Result')}
                 </span>
               </div>
 
               {/* Symptoms */}
               <div className="space-y-1.5">
-                <h4 className="text-xs font-bold text-km-dark uppercase tracking-wider">Visible Symptoms</h4>
+                <h4 className="text-xs font-bold text-km-dark uppercase tracking-wider">
+                  {t('diseasePage.symptoms', 'Visible Symptoms')}
+                </h4>
                 <ul className="space-y-1 text-xs text-km-subtext">
-                  {result.visibleSymptoms.map((s, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-km-sage font-bold">•</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-2">
+                    <span className="text-km-sage font-bold">•</span>
+                    <span>{t('diseasePage.sample.symptoms.0', 'Spindle-shaped elliptical lesions with greyish center on leaf blades.')}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-km-sage font-bold">•</span>
+                    <span>{t('diseasePage.sample.symptoms.1', 'Brownish margins spreading on upper canopy under humid cloud cover.')}</span>
+                  </li>
                 </ul>
               </div>
 
               {/* Prevention */}
               <div className="space-y-1.5 pt-2 border-t border-km-border/60">
-                <h4 className="text-xs font-bold text-km-dark uppercase tracking-wider">Preventive Practices</h4>
+                <h4 className="text-xs font-bold text-km-dark uppercase tracking-wider">
+                  {t('diseasePage.preventive', 'Preventive Practices')}
+                </h4>
                 <ul className="space-y-1 text-xs text-km-subtext">
-                  {result.preventivePractices.map((p, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-km-sage shrink-0 mt-0.5" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-km-sage shrink-0 mt-0.5" />
+                    <span>{t('diseasePage.sample.preventive.0', 'Avoid excessive split-doses of nitrogenous urea fertilizers.')}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-km-sage shrink-0 mt-0.5" />
+                    <span>{t('diseasePage.sample.preventive.1', 'Maintain field alley aeration (T-shape path) in dense Sali rice.')}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-km-sage shrink-0 mt-0.5" />
+                    <span>{t('diseasePage.sample.preventive.2', 'Spray bio-fungicide Pseudomonas fluorescens @ 2.5g/Litre water.')}</span>
+                  </li>
                 </ul>
               </div>
 
               {/* Disclaimers & Contact */}
               <div className="p-4 bg-amber-50/70 border border-amber-200 rounded-2xl space-y-2 text-xs text-amber-900">
-                <p className="leading-relaxed text-[11px]">{result.disclaimer}</p>
+                <p className="leading-relaxed text-[11px]">{t('diseasePage.disclaimer')}</p>
                 <div className="flex items-center gap-2 font-bold text-[11px] pt-1">
                   <PhoneCall className="w-3.5 h-3.5 text-amber-800" />
-                  <span>{result.expertCall}</span>
+                  <span>{t('diseasePage.expertCall')}</span>
                 </div>
               </div>
             </div>
           ) : (
             <div className="bg-km-surface rounded-3xl p-8 border border-km-border text-center space-y-3">
               <ScanEye className="w-12 h-12 text-km-subtext mx-auto" />
-              <h4 className="text-sm font-bold text-km-dark">No Image Analyzed</h4>
+              <h4 className="text-sm font-bold text-km-dark">
+                {t('diseasePage.noImageTitle', 'No Image Analyzed')}
+              </h4>
               <p className="text-xs text-km-subtext max-w-sm mx-auto leading-relaxed">
-                Select or upload a crop leaf image on the left and click <strong>"Analyze Image"</strong> to view symptom breakdowns and IPM recommendations.
+                {t('diseasePage.noImageDesc', 'Select or upload a crop leaf image on the left and click "Analyze Image" to view symptom breakdowns and IPM recommendations.')}
               </p>
             </div>
           )}

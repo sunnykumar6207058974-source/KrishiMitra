@@ -1,16 +1,16 @@
 {
+  "badge": "Farm Profile Management",
   "title": "My Farm Profile",
-  "subtitle": "Manage your agricultural land area, primary soil type, and irrigation capabilities.",
-  "labels": {
-    "farmName": "Farm / Plot Name",
-    "totalArea": "Total Land Area",
-    "landUnit": "Unit",
-    "soilType": "Primary Soil Texture",
-    "irrigation": "Primary Irrigation Source",
-    "experience": "Farming Experience (Years)",
-    "primaryCrops": "Major Crops Cultivated",
-    "location": "State & District"
-  },
-  "btnSave": "Save Farm Details",
-  "successMsg": "Farm profile updated successfully!"
+  "subtitle": "Manage your registered agricultural plot, soil profile, water infrastructure, and primary crops in Assam.",
+  "editBtn": "Edit Farm Information",
+  "updatedSuccess": "Farm profile details updated successfully!",
+  "primaryHolding": "Primary Registered Holding",
+  "totalArea": "Total Land Area",
+  "soilType": "Primary Soil Type",
+  "irrigation": "Irrigation Source",
+  "livestock": "Livestock Integration",
+  "cultivatedCrops": "Cultivated Crops This Year",
+  "modalTitle": "Edit Farm Profile",
+  "saveBtn": "Save Farm Details",
+  "cancelBtn": "Cancel"
 }

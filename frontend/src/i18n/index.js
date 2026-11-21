@@ -16,6 +16,9 @@ import enWeather from './locales/en/weather.json';
 import enSoil from './locales/en/soil.json';
 import enMandi from './locales/en/mandi.json';
 import enFarmer from './locales/en/farmer.json';
+import enCalendar from './locales/en/calendar.json';
+import enDisease from './locales/en/disease.json';
+import enSettings from './locales/en/settings.json';
 
 // Hindi translations
 import hiCommon from './locales/hi/common.json';
@@ -32,6 +35,9 @@ import hiWeather from './locales/hi/weather.json';
 import hiSoil from './locales/hi/soil.json';
 import hiMandi from './locales/hi/mandi.json';
 import hiFarmer from './locales/hi/farmer.json';
+import hiCalendar from './locales/hi/calendar.json';
+import hiDisease from './locales/hi/disease.json';
+import hiSettings from './locales/hi/settings.json';
 
 const savedLang = localStorage.getItem('krishi_language') || 'en';
 
@@ -52,6 +58,9 @@ const resources = {
       soilPage: enSoil,
       mandiPage: enMandi,
       farmerPage: enFarmer,
+      calendarPage: enCalendar,
+      diseasePage: enDisease,
+      settingsPage: enSettings,
       // Legacy flat keys backward-compatibility
       navHome: enCommon.nav.home,
       navAbout: enCommon.nav.about,
@@ -84,6 +93,9 @@ const resources = {
       soilPage: hiSoil,
       mandiPage: hiMandi,
       farmerPage: hiFarmer,
+      calendarPage: hiCalendar,
+      diseasePage: hiDisease,
+      settingsPage: hiSettings,
       // Legacy flat keys backward-compatibility
       navHome: hiCommon.nav.home,
       navAbout: hiCommon.nav.about,

@@ -1,0 +1,32 @@
+{
+  "badge": "Plant Pathology Module",
+  "title": "Crop Disease & Pest Detection",
+  "subtitle": "Upload photos of crop leaves or stems to identify visible symptoms and preventive practices.",
+  "uploadTitle": "Upload Crop Image",
+  "clickUpload": "Click to select leaf image",
+  "daylightNote": "Take photo in clear daylight",
+  "loadSample": "Load Sample Leaf",
+  "analyzeBtn": "Analyze Image",
+  "analyzing": "Analyzing...",
+  "diagnosticResult": "Diagnostic AI Observation",
+  "demonstrationResult": "Demonstration Result",
+  "symptoms": "Visible Symptoms",
+  "preventive": "Preventive Practices",
+  "disclaimer": "⚠️ Diagnostic Notice: An image analysis alone cannot provide a definitive plant pathology test. Do not apply unregistered chemical pesticides without consultation.",
+  "expertCall": "Kisan Call Centre Toll-Free: 1800-180-1551 (Available in Assamese & Hindi)",
+  "noImageTitle": "No Image Analyzed",
+  "noImageDesc": "Select or upload a crop leaf image on the left and click 'Analyze Image' to view symptom breakdowns and IPM recommendations.",
+  "sample": {
+    "condition": "Suspected Rice Blast / Brown Leaf Spot",
+    "pathogen": "Magnaporthe oryzae (Fungal spore susceptibility)",
+    "symptoms": [
+      "Spindle-shaped elliptical lesions with greyish center on leaf blades.",
+      "Brownish margins spreading on upper canopy under humid cloud cover."
+    ],
+    "preventive": [
+      "Avoid excessive split-doses of nitrogenous urea fertilizers.",
+      "Maintain field alley aeration (T-shape path) in dense Sali rice.",
+      "Spray bio-fungicide Pseudomonas fluorescens @ 2.5g/Litre water."
+    ]
+  }
+}

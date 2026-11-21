@@ -108,32 +108,32 @@ export default function Dashboard() {
               <div className="flex items-center justify-between border-b border-gray-100 pb-3">
                 <div className="flex items-center gap-2">
                   <CloudSun className="w-5 h-5 text-amber-500" />
-                  <h3 className="font-bold text-sm text-gray-900">Agromet Micro-Climate & Alerts</h3>
+                  <h3 className="font-bold text-sm text-gray-900">{t('dash.weatherWidget.title', 'Agromet Micro-Climate & Alerts')}</h3>
                 </div>
                 <span className="text-xs text-gray-500">{weather.location}</span>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                 <div className="p-3 bg-gray-50 rounded-xl">
-                  <span className="text-xs text-gray-500 block">Temperature</span>
+                  <span className="text-xs text-gray-500 block">{t('weatherPage.temp', 'Temperature')}</span>
                   <span className="text-xl font-black text-gray-900">{weather.temperature}°C</span>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-xl">
-                  <span className="text-xs text-gray-500 block">Humidity</span>
+                  <span className="text-xs text-gray-500 block">{t('weatherPage.humidity', 'Humidity')}</span>
                   <span className="text-xl font-black text-gray-900">{weather.humidity}%</span>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-xl">
-                  <span className="text-xs text-gray-500 block">Rainfall</span>
+                  <span className="text-xs text-gray-500 block">{t('weatherPage.precipitation', 'Rainfall')}</span>
                   <span className="text-xl font-black text-gray-900">{weather.rainfall} mm</span>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-xl">
-                  <span className="text-xs text-gray-500 block">Wind Speed</span>
+                  <span className="text-xs text-gray-500 block">{t('weatherPage.windSpeed', 'Wind Speed')}</span>
                   <span className="text-xl font-black text-gray-900">{weather.wind_speed} km/h</span>
                 </div>
               </div>
 
               <div className="p-4 bg-emerald-50/70 border border-emerald-100 rounded-xl space-y-1">
-                <span className="text-xs font-bold text-forest-800 uppercase tracking-wider block">Today's Field Advisory</span>
+                <span className="text-xs font-bold text-forest-800 uppercase tracking-wider block">{t('dash.weatherWidget.advisory', "Today's Field Advisory")}</span>
                 <p className="text-xs text-gray-700 leading-relaxed">{weather.advisory_summary}</p>
               </div>
             </div>
@@ -144,25 +144,25 @@ export default function Dashboard() {
             <div className="flex items-center justify-between border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2">
                 <Sprout className="w-5 h-5 text-forest-700" />
-                <h3 className="font-bold text-sm text-gray-900">Crop Recommendation Engine</h3>
+                <h3 className="font-bold text-sm text-gray-900">{t('cropsPage.title', 'AI Crop Recommendation')}</h3>
               </div>
-              <Link to="/crop-recommendation" className="text-xs font-semibold text-forest-800 hover:underline">
-                Run Soil Test &rarr;
+              <Link to="/app/crop-recommendation" className="text-xs font-semibold text-forest-800 hover:underline">
+                {t('cropsPage.btnSubmit', 'Run Soil Test')} &rarr;
               </Link>
             </div>
             <p className="text-xs text-gray-600 leading-relaxed">
-              Our Random Forest model analyzes your nitrogen, phosphorus, potassium, and soil pH to forecast the highest-yielding crop with 0% unverified guesswork.
+              {t('cropsPage.subtitle', 'Our agronomic model analyzes your nitrogen, phosphorus, potassium, and soil pH to forecast the highest-yielding crop with 0% unverified guesswork.')}
             </p>
             <div className="flex items-center justify-between p-3.5 bg-forest-50 border border-forest-100 rounded-xl">
               <div>
-                <span className="text-xs text-gray-500 block">Current Season Suggestion</span>
-                <span className="text-base font-bold text-forest-900">🌾 Wheat / Lokwan (Rabi Sowing)</span>
+                <span className="text-xs text-gray-500 block">{t('cropsPage.idealSeason', 'Current Season Suggestion')}</span>
+                <span className="text-base font-bold text-forest-900">🌾 {t('calendarPage.crops.Sali Paddy', 'Sali Paddy')} (Kharif)</span>
               </div>
               <Link
-                to="/crop-recommendation"
+                to="/app/crop-recommendation"
                 className="px-3.5 py-1.5 bg-forest-800 text-white rounded-lg text-xs font-bold hover:bg-forest-900"
               >
-                Analyze Soil
+                {t('buttons.calculate', 'Analyze Soil')}
               </Link>
             </div>
           </div>
@@ -175,36 +175,38 @@ export default function Dashboard() {
             <div className="flex items-center justify-between border-b border-gray-100 pb-3">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-forest-700" />
-                <h3 className="font-bold text-sm text-gray-900">Upcoming Farming Tasks</h3>
+                <h3 className="font-bold text-sm text-gray-900">{t('dash.tasksWidget.title', 'Upcoming Farming Tasks')}</h3>
               </div>
-              <Link to="/crop-calendar" className="text-xs font-semibold text-forest-800 hover:underline">
-                View All &rarr;
+              <Link to="/app/calendar" className="text-xs font-semibold text-forest-800 hover:underline">
+                {t('dash.tasksWidget.viewCalendar', 'View All')} &rarr;
               </Link>
             </div>
 
             <div className="space-y-2.5">
               {tasks.length === 0 ? (
-                <p className="text-xs text-gray-500 py-3 text-center">No tasks scheduled yet.</p>
+                <p className="text-xs text-gray-500 py-3 text-center">{t('dash.tasksWidget.noTasks', 'No tasks scheduled yet.')}</p>
               ) : (
-                tasks.slice(0, 4).map((t) => (
+                tasks.slice(0, 4).map((tk) => (
                   <div
-                    key={t.id}
-                    onClick={() => toggleTask(t.id, t.is_completed)}
+                    key={tk.id}
+                    onClick={() => toggleTask(tk.id, tk.is_completed)}
                     className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-colors ${
-                      t.is_completed ? 'bg-gray-50 border-gray-200 text-gray-400' : 'bg-white border-gray-200 text-gray-800 hover:bg-forest-50/50'
+                      tk.is_completed ? 'bg-gray-50 border-gray-200 text-gray-400' : 'bg-white border-gray-200 text-gray-800 hover:bg-forest-50/50'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
                       <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                        t.is_completed ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-gray-400'
+                        tk.is_completed ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-gray-400'
                       }`}>
-                        {t.is_completed && <CheckCircle2 className="w-3.5 h-3.5" />}
+                        {tk.is_completed && <CheckCircle2 className="w-3.5 h-3.5" />}
                       </div>
                       <div>
-                        <span className={`text-xs font-bold block ${t.is_completed ? 'line-through' : ''}`}>
-                          {t.task_title}
+                        <span className={`text-xs font-bold block ${tk.is_completed ? 'line-through' : ''}`}>
+                          {t(`calendarPage.tasks.${tk.id}.title`, tk.task_title)}
                         </span>
-                        <span className="text-[10px] text-gray-500">{t.crop_name} • {t.stage}</span>
+                        <span className="text-[10px] text-gray-500">
+                          {t(`calendarPage.crops.${tk.crop_name}`, tk.crop_name)} • {t(`calendarPage.stages.${tk.stage}`, tk.stage)}
+                        </span>
                       </div>
                     </div>
                   </div>

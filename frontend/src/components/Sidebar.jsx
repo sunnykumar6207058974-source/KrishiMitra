@@ -17,9 +17,11 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -28,16 +30,16 @@ export default function Sidebar({ isOpen, onClose }) {
   };
 
   const navItems = [
-    { name: 'Dashboard', path: '/app/dashboard', icon: LayoutDashboard },
-    { name: 'Crop Recommendation', path: '/app/crop-recommendation', icon: Sprout },
-    { name: 'Weather & Advisory', path: '/app/weather', icon: CloudSun },
-    { name: 'Crop Calendar', path: '/app/calendar', icon: Calendar },
-    { name: 'Soil Health', path: '/app/soil-health', icon: Activity },
-    { name: 'Disease Detection', path: '/app/disease-detection', icon: ScanEye },
-    { name: 'Market Prices', path: '/app/market-prices', icon: Store },
-    { name: 'AI Farming Assistant', path: '/app/ai-assistant', icon: MessageSquareText },
-    { name: 'My Farm', path: '/app/my-farm', icon: Tractor },
-    { name: 'Settings & Profile', path: '/app/settings', icon: Settings },
+    { name: t('sidebar.dashboard', 'Dashboard'), path: '/app/dashboard', icon: LayoutDashboard },
+    { name: t('sidebar.cropRec', 'Crop Recommendation'), path: '/app/crop-recommendation', icon: Sprout },
+    { name: t('sidebar.weather', 'Weather & Advisory'), path: '/app/weather', icon: CloudSun },
+    { name: t('sidebar.calendar', 'Crop Calendar'), path: '/app/calendar', icon: Calendar },
+    { name: t('sidebar.soilHealth', 'Soil Health'), path: '/app/soil-health', icon: Activity },
+    { name: t('sidebar.disease', 'Disease Detection'), path: '/app/disease-detection', icon: ScanEye },
+    { name: t('sidebar.mandi', 'Market Prices'), path: '/app/market-prices', icon: Store },
+    { name: t('sidebar.aiAssistant', 'AI Farming Assistant'), path: '/app/ai-assistant', icon: MessageSquareText },
+    { name: t('sidebar.myFarm', 'My Farm'), path: '/app/my-farm', icon: Tractor },
+    { name: t('sidebar.settings', 'Settings & Profile'), path: '/app/settings', icon: Settings },
   ];
 
   return (
@@ -83,7 +85,7 @@ export default function Sidebar({ isOpen, onClose }) {
         {/* Navigation List */}
         <div className="flex-1 overflow-y-auto px-4 py-5 space-y-1">
           <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-km-muted">
-            Main Modules
+            {t('sidebar.mainModules', 'Main Modules')}
           </div>
 
           {navItems.map((item) => {

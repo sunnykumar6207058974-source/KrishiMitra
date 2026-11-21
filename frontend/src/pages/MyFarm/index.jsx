@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Tractor, MapPin, Edit3, CheckCircle2, ShieldCheck, Droplets, Sprout, Save, X } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import { MY_FARM_MOCK } from '../../data/mockData';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function MyFarm() {
+  const { t } = useLanguage();
   const [farm, setFarm] = useState(MY_FARM_MOCK);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState(farm);
@@ -20,16 +22,16 @@ export default function MyFarm() {
   return (
     <div className="space-y-8">
       <PageHeader
-        badge="Farm Profile Management"
-        title="My Farm Profile"
-        subtitle="Manage your registered agricultural plot, soil profile, water infrastructure, and primary crops in Assam."
+        badge={t('farmerPage.badge', 'Farm Profile Management')}
+        title={t('farmerPage.title', 'My Farm Profile')}
+        subtitle={t('farmerPage.subtitle', 'Manage your registered agricultural plot, soil profile, water infrastructure, and primary crops in Assam.')}
         actionButton={
           <button
             onClick={() => { setEditForm(farm); setIsEditing(true); }}
             className="px-4 py-2.5 bg-km-deep hover:bg-km-sage text-white text-xs font-bold rounded-2xl shadow-subtle flex items-center gap-1.5 transition-colors"
           >
             <Edit3 className="w-4 h-4" />
-            <span>Edit Farm Information</span>
+            <span>{t('farmerPage.editBtn', 'Edit Farm Information')}</span>
           </button>
         }
       />
@@ -37,7 +39,7 @@ export default function MyFarm() {
       {savedSuccess && (
         <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-          <span>Farm profile details updated successfully!</span>
+          <span>{t('farmerPage.updatedSuccess', 'Farm profile details updated successfully!')}</span>
         </div>
       )}
 
@@ -50,7 +52,7 @@ export default function MyFarm() {
             </div>
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-km-sage block">
-                Primary Registered Holding
+                {t('farmerPage.primaryHolding', 'Primary Registered Holding')}
               </span>
               <h2 className="text-xl sm:text-2xl font-black text-km-dark">{farm.farmName}</h2>
               <span className="text-xs text-km-subtext">{farm.farmerName} • Reg: {farm.registrationDate}</span>
@@ -66,27 +68,27 @@ export default function MyFarm() {
         {/* Specifications Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="p-4 bg-km-bg rounded-2xl border border-km-border space-y-1">
-            <span className="text-[10px] text-km-subtext font-semibold uppercase block">Total Land Area</span>
+            <span className="text-[10px] text-km-subtext font-semibold uppercase block">{t('farmerPage.totalArea', 'Total Land Area')}</span>
             <span className="text-lg font-black text-km-dark">{farm.totalArea} {farm.areaUnit}</span>
           </div>
           <div className="p-4 bg-km-bg rounded-2xl border border-km-border space-y-1">
-            <span className="text-[10px] text-km-subtext font-semibold uppercase block">Primary Soil Type</span>
+            <span className="text-[10px] text-km-subtext font-semibold uppercase block">{t('farmerPage.soilType', 'Primary Soil Type')}</span>
             <span className="text-sm font-bold text-km-dark">{farm.soilType}</span>
             <span className="text-[10px] text-km-subtext block">Tested pH: {farm.soilPh} (Acidic)</span>
           </div>
           <div className="p-4 bg-km-bg rounded-2xl border border-km-border space-y-1">
-            <span className="text-[10px] text-km-subtext font-semibold uppercase block">Irrigation Source</span>
+            <span className="text-[10px] text-km-subtext font-semibold uppercase block">{t('farmerPage.irrigation', 'Irrigation Source')}</span>
             <span className="text-sm font-bold text-km-dark">{farm.irrigationSource}</span>
           </div>
           <div className="p-4 bg-km-bg rounded-2xl border border-km-border space-y-1">
-            <span className="text-[10px] text-km-subtext font-semibold uppercase block">Livestock Integration</span>
+            <span className="text-[10px] text-km-subtext font-semibold uppercase block">{t('farmerPage.livestock', 'Livestock Integration')}</span>
             <span className="text-sm font-bold text-km-dark">{farm.livestock}</span>
           </div>
         </div>
 
         {/* Crops */}
         <div className="space-y-2 pt-2 border-t border-km-border/60">
-          <span className="text-xs font-bold text-km-dark block">Cultivated Crops This Year:</span>
+          <span className="text-xs font-bold text-km-dark block">{t('farmerPage.cultivatedCrops', 'Cultivated Crops This Year')}:</span>
           <div className="flex flex-wrap gap-2">
             {farm.primaryCrops.map((c, i) => (
               <span key={i} className="px-3 py-1.5 bg-km-bg text-km-dark text-xs font-semibold rounded-xl border border-km-border">
@@ -102,7 +104,7 @@ export default function MyFarm() {
         <div className="fixed inset-0 z-50 bg-km-deep/40 backdrop-blur-xs flex items-center justify-center p-4">
           <form onSubmit={handleSave} className="bg-km-surface max-w-lg w-full rounded-3xl p-6 border border-km-border shadow-floating space-y-4">
             <div className="flex items-center justify-between border-b border-km-border pb-3">
-              <h3 className="text-base font-bold text-km-dark">Edit Farm Information</h3>
+              <h3 className="text-base font-bold text-km-dark">{t('farmerPage.modalTitle', 'Edit Farm Information')}</h3>
               <button type="button" onClick={() => setIsEditing(false)} className="p-1 text-km-subtext hover:text-km-dark">
                 <X className="w-5 h-5" />
               </button>
@@ -167,13 +169,13 @@ export default function MyFarm() {
                 onClick={() => setIsEditing(false)}
                 className="flex-1 py-2.5 rounded-xl border border-km-border text-xs font-bold text-km-dark hover:bg-km-bg"
               >
-                Cancel
+                {t('farmerPage.cancelBtn', 'Cancel')}
               </button>
               <button
                 type="submit"
                 className="flex-1 py-2.5 bg-km-deep text-white rounded-xl text-xs font-bold hover:bg-km-sage transition-colors"
               >
-                Save Changes
+                {t('farmerPage.saveBtn', 'Save Changes')}
               </button>
             </div>
           </form>

@@ -1,0 +1,82 @@
+{
+  "badge": "Field Operations",
+  "title": "Farming Calendar & Activity Tracker",
+  "subtitle": "Track critical milestones for Sali paddy, Toria mustard, and seasonal crop cycles.",
+  "addActivity": "Add New Activity",
+  "scheduledMilestones": "Scheduled Milestones",
+  "due": "Due",
+  "stage": "Stage",
+  "emptyState": "No scheduled milestones found for the selected filter.",
+  "successAdd": "New farming activity scheduled successfully!",
+  "filters": {
+    "all": "All",
+    "sowing": "Sowing",
+    "irrigation": "Irrigation",
+    "fertilizer": "Fertilizer Application",
+    "protection": "Crop Protection"
+  },
+  "priorities": {
+    "High": "High",
+    "Medium": "Medium",
+    "Low": "Low"
+  },
+  "statuses": {
+    "Pending": "Pending",
+    "In Progress": "In Progress",
+    "Completed": "Completed"
+  },
+  "stages": {
+    "Sowing": "Sowing",
+    "Irrigation": "Irrigation",
+    "Irrigation & Drainage": "Irrigation & Drainage",
+    "Fertilizer Application": "Fertilizer Application",
+    "Fertilizer": "Fertilizer Application",
+    "Crop Protection": "Crop Protection",
+    "Protection": "Crop Protection",
+    "Harvesting": "Harvesting"
+  },
+  "crops": {
+    "Sali Paddy": "Sali Paddy",
+    "Yellow Mustard": "Yellow Mustard",
+    "General Farm": "General Farm",
+    "Black Gram": "Black Gram"
+  },
+  "tasks": {
+    "1": {
+      "title": "Top Dressing of Urea in Sali Paddy (Tillering Stage)",
+      "notes": "Apply 30 kg/ha Nitrogen when water level is shallow (2-3 cm). Avoid application during rain.",
+      "crop": "Sali Paddy",
+      "stage": "Fertilizer Application"
+    },
+    "2": {
+      "title": "Soil Moisture Check & Seedbed Sowing for Toria Mustard",
+      "notes": "Sow TS-38 certified seeds with line spacing of 30 cm into moist post-paddy soil.",
+      "crop": "Yellow Mustard",
+      "stage": "Sowing"
+    },
+    "3": {
+      "title": "Drainage Channel Clearance in Lowland Rice Plots",
+      "notes": "Clear field drains along Barak embankment to prevent standing water during unseasonal showers.",
+      "crop": "General Farm",
+      "stage": "Irrigation & Drainage"
+    },
+    "4": {
+      "title": "Trichoderma Viride Seed Bio-Treatment for Pulses",
+      "notes": "Treated 10 kg seed with 50g Trichoderma bio-fungicide to control collar rot.",
+      "crop": "Black Gram",
+      "stage": "Crop Protection"
+    }
+  },
+  "modalTitle": "Schedule New Farming Activity",
+  "labelTitle": "Activity Title",
+  "placeholderTitle": "e.g. 2nd Weeding and Water Regulation",
+  "labelCrop": "Target Crop",
+  "placeholderCrop": "e.g. Sali Paddy",
+  "labelStage": "Growth Stage",
+  "labelDate": "Due Date",
+  "labelPriority": "Priority",
+  "labelNotes": "Agronomic Notes & Reminders",
+  "placeholderNotes": "Add specific field guidelines, dosages, or warnings...",
+  "btnCancel": "Cancel",
+  "btnSave": "Save Activity"
+}

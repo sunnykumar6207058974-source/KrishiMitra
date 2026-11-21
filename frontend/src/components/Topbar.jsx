@@ -8,14 +8,17 @@ import {
   CheckCircle2,
   ChevronDown,
   X,
-  ExternalLink
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 import { ASSAM_LOCATIONS } from '../data/mockData';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 
 export default function Topbar({ onMenuClick, title, breadcrumb }) {
   const { user } = useAuth();
+  const { lang, setLang, t } = useLanguage();
   const [selectedLocation, setSelectedLocation] = useState(ASSAM_LOCATIONS[0].id);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -58,7 +61,7 @@ export default function Topbar({ onMenuClick, title, breadcrumb }) {
           <Search className="w-4 h-4 text-km-subtext absolute left-3.5 top-2.5" />
           <input
             type="text"
-            placeholder="Search crops, weather, advisories, mandi rates..."
+            placeholder={t('topbar.search', 'Search crops, weather, advisories, mandi rates...')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-4 py-2 bg-km-bg/80 hover:bg-km-bg focus:bg-white text-xs font-medium text-km-dark placeholder-km-subtext rounded-xl border border-transparent focus:border-km-sage focus:outline-none transition-all"
@@ -66,8 +69,20 @@ export default function Topbar({ onMenuClick, title, breadcrumb }) {
         </div>
       </div>
 
-      {/* Right Controls: Location, Notifications, Profile */}
+      {/* Right Controls: Language, Location, Notifications, Profile */}
       <div className="flex items-center gap-2.5">
+        {/* Language Selector */}
+        <div className="relative flex items-center gap-1.5 bg-km-bg px-2.5 py-1.5 rounded-xl border border-km-border text-xs">
+          <Globe className="w-3.5 h-3.5 text-km-sage shrink-0" />
+          <select
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+            className="bg-transparent focus:outline-none font-bold text-km-dark cursor-pointer text-xs pr-1"
+          >
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
         {/* Location Selector (Assam Benchmark Focus) */}
         <div className="relative flex items-center gap-1.5 bg-km-bg px-3 py-1.5 rounded-xl border border-km-border text-xs">
           <MapPin className="w-3.5 h-3.5 text-km-sage shrink-0" />

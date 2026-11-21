@@ -3,29 +3,31 @@ import { CloudSun, Droplets, Wind, AlertCircle, Sun, CloudRain, MapPin, ShieldCh
 import PageHeader from '../../components/PageHeader';
 import WeatherCard from '../../components/WeatherCard';
 import { CURRENT_WEATHER_MOCK, ASSAM_LOCATIONS } from '../../data/mockData';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function Weather() {
+  const { t } = useLanguage();
   const [selectedLoc, setSelectedLoc] = useState('silchar');
 
   const locObj = ASSAM_LOCATIONS.find(l => l.id === selectedLoc) || ASSAM_LOCATIONS[0];
 
   const advisories = [
     {
-      category: 'Irrigation & Drainage',
-      title: 'Water Management for Barak River Basin',
-      guidance: 'With relative humidity at 82% and mild overcast skies, water evaporation from paddy fields is low. Maintain 2-3 cm standing water in Sali rice fields; hold back additional pump irrigation.',
+      category: t('weatherPage.irrigationCategory', 'Irrigation & Drainage'),
+      title: t('weatherPage.irrigationTitle', 'Water Management for Barak River Basin'),
+      guidance: t('weatherPage.irrigationDesc', 'With relative humidity at 82% and mild overcast skies, water evaporation from paddy fields is low. Maintain 2-3 cm standing water in Sali rice fields; hold back additional pump irrigation.'),
       type: 'Barak Agromet Division (Benchmark Advisory)'
     },
     {
-      category: 'Crop Protection & Spraying',
-      title: 'Knapsack Spraying Precautions',
-      guidance: 'Wind speed is calm at 8 km/h. Suitable for foliar spray of organic neem oil (NSKE 5%) or zinc sulphate. Cease spraying if evening mist clouds thicken.',
+      category: t('weatherPage.sprayingCategory', 'Crop Protection & Spraying'),
+      title: t('weatherPage.sprayingTitle', 'Knapsack Spraying Precautions'),
+      guidance: t('weatherPage.sprayingDesc', 'Wind speed is calm at 8 km/h. Suitable for foliar spray of organic neem oil (NSKE 5%) or zinc sulphate. Cease spraying if evening mist clouds thicken.'),
       type: 'Agronomy Practice'
     },
     {
-      category: 'Post-Harvest Alert',
-      title: 'Ahu Rice & Grain Drying Notice',
-      guidance: 'Ensure harvested grains are covered with tarpaulin sheets overnight to avoid moisture absorption from early winter morning dews.',
+      category: t('weatherPage.harvestCategory', 'Post-Harvest Alert'),
+      title: t('weatherPage.harvestTitle', 'Ahu Rice & Grain Drying Notice'),
+      guidance: t('weatherPage.harvestDesc', 'Ensure harvested grains are covered with tarpaulin sheets overnight to avoid moisture absorption from early winter morning dews.'),
       type: 'Seasonal Reminder'
     }
   ];
@@ -33,9 +35,9 @@ export default function Weather() {
   return (
     <div className="space-y-8">
       <PageHeader
-        badge="Agromet Weather Division"
-        title="Weather & Agricultural Advisory"
-        subtitle="Hyperlocal weather forecasts and crop-growth stage advisories for Assam farmers."
+        badge={t('weatherPage.badge', 'Agromet Weather Division')}
+        title={t('weatherPage.title', 'Weather & Agricultural Advisory')}
+        subtitle={t('weatherPage.subtitle', 'Hyperlocal weather forecasts and crop-growth stage advisories for Assam farmers.')}
         actionButton={
           <div className="flex items-center gap-2 bg-km-surface px-3 py-1.5 rounded-2xl border border-km-border shadow-subtle text-xs">
             <MapPin className="w-3.5 h-3.5 text-km-sage" />
@@ -57,7 +59,7 @@ export default function Weather() {
 
       {/* Detailed Advisories */}
       <div className="space-y-4">
-        <h3 className="text-base font-bold text-km-dark">Stage-Specific Agricultural Guidance</h3>
+        <h3 className="text-base font-bold text-km-dark">{t('weatherPage.guidanceTitle', 'Stage-Specific Agricultural Guidance')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {advisories.map((adv, idx) => (
             <div key={idx} className="bg-km-surface p-6 rounded-3xl border border-km-border shadow-subtle space-y-3 flex flex-col justify-between">
